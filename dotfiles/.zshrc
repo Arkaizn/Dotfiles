@@ -105,3 +105,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias ff='fastfetch'
+
+ff --config arch
