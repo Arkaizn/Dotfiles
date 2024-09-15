@@ -60,11 +60,9 @@ esac
 # Ask if user wants to install zsh
 ask_install_zsh
 
-# Enable GDM service
-echo -e "${YELLOW}Starting and enabling GDM service...${NC}"
+# Enable services
+echo -e "${YELLOW}Enabling GDM service...${NC}"
 sudo systemctl enable --now gdm.service
-sudo systemctl start gdm.service
-
 
 echo -e "${GREEN}Installation complete! GNOME is set up and running.${NC}"
 reboot
