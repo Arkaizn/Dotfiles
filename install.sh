@@ -5,7 +5,10 @@ GREEN="\033[0;32m"
 YELLOW="\033[1;33m"
 NC="\033[0m" # No Color
 
-# functions
+# Paths
+DOTFILES_DIR="$HOME/git/Dotfiles"
+
+# Functions
 ask_install_zsh() {
     echo -e "${YELLOW}Do you want to install zsh and configure it? (y/n)${NC}"
     read -r -p "Answer: " response
@@ -19,10 +22,6 @@ ask_install_zsh() {
             ;;
     esac
 }
-
-
-# Paths
-DOTFILES_DIR="$HOME/git/Dotfiles"
 
 # Update system
 echo -e "${YELLOW}Updating packages...${NC}"
