@@ -5,6 +5,22 @@ GREEN="\033[0;32m"
 YELLOW="\033[1;33m"
 NC="\033[0m" # No Color
 
+# functions
+ask_install_zsh() {
+    echo -e "${YELLOW}Do you want to install zsh and configure it? (y/n)${NC}"
+    read -r -p "Answer: " response
+    case "$response" in
+        ""|[yY][eE][sS]|[yY])
+            echo -e "${YELLOW}Installing and configuring zsh...${NC}"
+            bash ./dotfiles/zshconnf/zshinstall.sh
+            ;;
+        *)
+            echo -e "${YELLOW}Skipping zsh installation.${NC}"
+            ;;
+    esac
+}
+
+
 # Paths
 DOTFILES_DIR="$HOME/git/Dotfiles"
 
@@ -12,19 +28,43 @@ DOTFILES_DIR="$HOME/git/Dotfiles"
 echo -e "${YELLOW}Updating packages...${NC}"
 sudo pacman -Syu --noconfirm
 
-# Install essential packages
-echo -e "${YELLOW}Installing essential packages...${NC}"
-sudo pacman -S --noconfirm nano fastfetch
-bash ~/git/Dotfiles/dotfiles/zshconnf/zshinstall.sh
+# Define essential packages
+essential_packages=(
+    nano
+    fastfetch
+    xorg
+    xorg-server
+    gnome
+    gdm
+)
 
-# GNOME installation
-echo -e "${YELLOW}Installing Xorg, GNOME, and GDM...${NC}"
-sudo pacman -S --noconfirm xorg xorg-server gnome gdm
+# Show packages that will be installed
+echo -e "${YELLOW}The following packages will be installed:${NC}"
+for package in "${essential_packages[@]}"; do
+    echo -e "${GREEN}- $package${NC}"
+done
+
+# Confirm package installation
+echo -e "${YELLOW}Proceed with the installation? (y/n)${NC}"
+read -r -p "Answer: " proceed
+case "$proceed" in
+    ""|[yY][eE][sS]|[yY])
+        echo -e "${YELLOW}Installing essential packages...${NC}"
+        sudo pacman -S --noconfirm "${essential_packages[@]}"
+        ;;
+    *)
+        echo -e "${YELLOW}Installation cancelled. Skipping...${NC}"
+        ;;
+esac
+
+# Ask if user wants to install zsh
+ask_install_zsh
 
 # Enable GDM service
 echo -e "${YELLOW}Starting and enabling GDM service...${NC}"
-sudo systemctl start gdm.service
 sudo systemctl enable --now gdm.service
+sudo systemctl start gdm.service
+
 
 echo -e "${GREEN}Installation complete! GNOME is set up and running.${NC}"
-
+reboot
