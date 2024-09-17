@@ -12,7 +12,7 @@ ask_install_zsh() {
     case "$response" in
         ""|[yY][eE][sS]|[yY])
             echo -e "${YELLOW}Installing and configuring zsh...${NC}"
-            bash ./dotfiles/zshconnf/zshinstall.sh
+            bash ./dotfiles/zshconf/zshinstall.sh
             ;;
         *)
             echo -e "${YELLOW}Skipping zsh installation.${NC}"
