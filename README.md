@@ -10,8 +10,6 @@ An automated script designed to configure a basic Arch Linux environment. It sim
 - [Usage](#usage)
 - [Customization](#customization)
 - [Reboot](#reboot)
-- [Contributors](#contributors)
-- [License](#license)
 
 ## Features
 - **Package Installation**: Automatically installs essential packages like `xorg`, `gnome`, `gdm`, etc.
@@ -28,17 +26,13 @@ An automated script designed to configure a basic Arch Linux environment. It sim
 ### Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/yourrepository.git
-   cd yourrepository
-   ```
-2. Make the main script executable:
-   ```bash
-   chmod +x setup.sh
+   git clone https://github.com/arkaizn/dotfiles
+   cd dotfiles
    ```
 
-3. Run the setup script:
+2. Run the setup script:
    ```bash
-   ./setup.sh
+   bash install.sh
    ```
 
 Follow the prompts to configure Zsh and install the necessary packages.
