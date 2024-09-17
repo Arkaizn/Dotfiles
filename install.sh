@@ -8,6 +8,9 @@ NC="\033[0m" # No Color
 # Paths
 DOTFILES_DIR="$HOME/git/Dotfiles"
 
+# add rights to subscripts
+chmod +x ./dotfiles/zshconnf/zshinstall.sh
+
 # Functions
 ask_install_zsh() {
     echo -e "${YELLOW}Do you want to install zsh and configure it? (y/n)${NC}"
