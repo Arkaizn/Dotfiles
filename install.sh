@@ -5,12 +5,6 @@ GREEN="\033[0;32m"
 YELLOW="\033[1;33m"
 NC="\033[0m" # No Color
 
-# Paths
-DOTFILES_DIR="$HOME/git/Dotfiles"
-
-# add rights to subscripts
-chmod +x ./dotfiles/zshconnf/zshinstall.sh
-
 # Functions
 ask_install_zsh() {
     echo -e "${YELLOW}Do you want to install zsh and configure it? (y/n)${NC}"
@@ -66,5 +60,16 @@ ask_install_zsh
 echo -e "${YELLOW}Enabling GDM service...${NC}"
 sudo systemctl enable --now gdm.service
 
+# Ask for Reboot
 echo -e "${GREEN}Installation complete! GNOME is set up and running.${NC}"
-reboot
+echo -e "${YELLOW}Do you want to reboot? (y/n)${NC}"
+    read -r -p "Answer: " response
+    case "$response" in
+        ""|[yY][eE][sS]|[yY])
+            reboot
+            ;;
+        *)
+            echo -e "${YELLOW}Skipping...${NC}"
+            sudo systemctl start gdm.service
+            ;;
+    esac
