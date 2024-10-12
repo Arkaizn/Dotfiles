@@ -28,6 +28,7 @@ sudo pacman -Syu --noconfirm
 essential_packages=(
     nano
     curl
+    wget
     fastfetch
     xorg
     xorg-server
