@@ -12,7 +12,6 @@ https://extensions.gnome.org/extension/1010/archlinux-updates-indicator/
 https://extensions.gnome.org/extension/779/clipboard-indicator/
 https://extensions.gnome.org/extension/3843/just-perfection/
 https://extensions.gnome.org/extension/841/freon/
-https://extensions.gnome.org/extension/3730/floating-dock/
 https://extensions.gnome.org/extension/5940/quick-settings-audio-panel/
 https://extensions.gnome.org/extension/5105/reboottouefi/
 https://extensions.gnome.org/extension/1414/unblank/
