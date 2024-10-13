@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # install gnome extensions
-array=( https://extensions.gnome.org/extension/1328/disable-workspace-switch-animation/
+array=( 
 https://extensions.gnome.org/extension/19/user-themes/
+https://extensions.gnome.org/extension/6796/better-end-session-dialog/
 https://extensions.gnome.org/extension/3193/blur-my-shell/
 https://extensions.gnome.org/extension/4684/useless-gaps/
 https://extensions.gnome.org/extension/307/dash-to-dock/
@@ -12,6 +13,9 @@ https://extensions.gnome.org/extension/779/clipboard-indicator/
 https://extensions.gnome.org/extension/3843/just-perfection/
 https://extensions.gnome.org/extension/841/freon/
 https://extensions.gnome.org/extension/3730/floating-dock/
+https://extensions.gnome.org/extension/5940/quick-settings-audio-panel/
+https://extensions.gnome.org/extension/5105/reboottouefi/
+https://extensions.gnome.org/extension/1414/unblank/
 https://extensions.gnome.org/extension/1460/vitals/ )
 
 for i in "${array[@]}"
@@ -26,3 +30,7 @@ do
     gnome-extensions enable ${EXTENSION_ID}
     rm ${EXTENSION_ID}.zip
 done
+
+git clone https://github.com/jeffshee/gnome-ext-hanabi.git -b gnome-47
+
+bash ./systemconfig/gnome-ext-hanabi/./run.sh install
