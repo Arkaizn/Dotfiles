@@ -91,6 +91,30 @@ echo -e "${YELLOW}Do you want to install openrgb? (y/n)${NC}"
             ;;
     esac
 
+# install some other apps
+echo -e "${YELLOW}Do you want to install some other apps that you probably need?(browser,...) (y/n)${NC}"
+    read -r -p "Answer: " response
+    case "$response" in
+        ""|[yY][eE][sS]|[yY])
+            bash ./systemconfig/apps.sh
+            ;;
+        *)
+            echo -e "${YELLOW}Skipping...${NC}"
+            ;;
+    esac
+
+# install nvidia drivers for Maxwell (NV110) series and newer
+echo -e "${YELLOW}Do you want to install the nvidia drivers for Maxwell (NV110) series and newer? (y/n)${NC}"
+    read -r -p "Answer: " response
+    case "$response" in
+        ""|[yY][eE][sS]|[yY])
+            bash ./nvidia.sh
+            ;;
+        *)
+            echo -e "${YELLOW}Skipping...${NC}"
+            ;;
+    esac
+
 # Ask for Reboot
 echo -e "${GREEN}Installation complete! GNOME is set up and running.${NC}"
 echo -e "${YELLOW}If you want to install the gnome extensions, you will need to start the /systemconfig/gnomeextensions.sh, after you log into gnome${NC}"
