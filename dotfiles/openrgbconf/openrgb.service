@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenRGB Service
+After=network.target
+
+[Service]
+Type=idle
+ExecStart=/bin/bash /root/start-openrgb.sh
+Restart=on-failure
+TimeoutSec=30
+
+[Install]
+WantedBy=multi-user.target
