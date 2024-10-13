@@ -60,10 +60,10 @@ ask_install_zsh
 
 # Enable services
 echo -e "${YELLOW}Enabling GDM service...${NC}"
-sudo systemctl enable --now gdm.service
+sudo systemctl enable gdm.service
 
 # install gnome themes and icons...
-sudo pacman -S gnome-tweaks
+sudo pacman -S gnome-tweaks --noconfirm
 
 mkdir ~/.themes
 mkdir ~/.icons
