@@ -36,6 +36,7 @@ pacman_packages=(
     "steam"
     "thunderbird"
     "pacman-contrib"
+    "gnome-terminal"
 )
 # Iterate over the Pacman packages and install if not already installed
 for pkg in "${pacman_packages[@]}"; do
