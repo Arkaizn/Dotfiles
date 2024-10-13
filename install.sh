@@ -65,6 +65,8 @@ sudo systemctl enable --now gdm.service
 # install gnome themes and icons...
 sudo pacman -S gnome-tweaks
 
+mkdir ~/.themes
+mkdir ~/.icons
 cp -r ./systemconfig/themes/* ~/.themes/
 cp -r ./systemconfig/icons/* ~/.icons/
 
