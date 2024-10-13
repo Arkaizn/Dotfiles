@@ -1,1 +1,0 @@
-You can find informations and instructions [here](https://github.com/Rayzeq/libpanel/wiki).
