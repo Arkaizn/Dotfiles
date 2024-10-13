@@ -1,3 +1,4 @@
+# install gnome extensions
 array=( https://extensions.gnome.org/extension/1328/disable-workspace-switch-animation/
 https://extensions.gnome.org/extension/19/user-themes/
 https://extensions.gnome.org/extension/3193/blur-my-shell/
