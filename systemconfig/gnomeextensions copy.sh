@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# install gnome extensions
+# Disable the confirmation dialog (may not always work)
+gsettings set org.gnome.shell.extensions install confirm false
+
+# Install GNOME extensions
 array=(
     https://extensions.gnome.org/extension/1328/disable-workspace-switch-animation/
     https://extensions.gnome.org/extension/19/user-themes/
@@ -21,10 +24,14 @@ for i in "${array[@]}"; do
     VERSION_TAG=$(curl -Lfs "https://extensions.gnome.org/extension-query/?search=$EXTENSION_ID" | jq '.extensions[0] | .shell_version_map | map(.pk) | max')
     wget -O "${EXTENSION_ID}.zip" "https://extensions.gnome.org/download-extension/${EXTENSION_ID}.shell-extension.zip?version_tag=$VERSION_TAG"
     
-    gnome-extensions install --quiet --force "${EXTENSION_ID}.zip"  # Suppress output
+    # Install the extension without a confirmation dialog
+    gnome-extensions install --force "${EXTENSION_ID}.zip"
     if ! gnome-extensions list | grep --quiet "${EXTENSION_ID}"; then
         busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s "${EXTENSION_ID}"
     fi
-    gnome-extensions enable --quiet "${EXTENSION_ID}"  # Suppress output
+    gnome-extensions enable "${EXTENSION_ID}"
     rm "${EXTENSION_ID}.zip"
 done
+
+# Re-enable confirmation dialog (if it was disabled)
+gsettings set org.gnome.shell.extensions install confirm true
