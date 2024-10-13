@@ -70,6 +70,10 @@ mkdir ~/.icons
 cp -r ./systemconfig/themes/* ~/.themes/
 cp -r ./systemconfig/icons/* ~/.icons/
 
+# setup openrgb
+sudo pacman -S openrgb
+bash ./dotfiles/openrgbconf/openrgb.sh
+
 # Ask for Reboot
 echo -e "${GREEN}Installation complete! GNOME is set up and running.${NC}"
 echo -e "${GREEN}If you want to install the gnome extensions, you will need to start the /systemconfig/gnomeextensions.sh, after you log into gnome${NC}"
