@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S openrgb
+sudo pacman -S openrgb --noconfirm
 
 sudo cp ./dotfiles/openrgbconf/openrgb.service /etc/systemd/system/
 sudo cp ./dotfiles/openrgbconf/start-openrgb.sh /root/
