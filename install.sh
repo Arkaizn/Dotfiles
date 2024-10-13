@@ -62,8 +62,15 @@ ask_install_zsh
 echo -e "${YELLOW}Enabling GDM service...${NC}"
 sudo systemctl enable --now gdm.service
 
+# install gnome themes and icons...
+sudo pacman -S gnome-tweaks
+
+cp -r ./systemconfig/themes/* ~/.themes/
+cp -r ./systemconfig/icons/* ~/.icons/
+
 # Ask for Reboot
 echo -e "${GREEN}Installation complete! GNOME is set up and running.${NC}"
+echo -e "${GREEN}If you want to install the gnome extensions, you will need to start the /systemconfig/gnomeextensions.sh, after you log into gnome${NC}"
 echo -e "${YELLOW}Do you want to reboot? (y/n)${NC}"
     read -r -p "Answer: " response
     case "$response" in
