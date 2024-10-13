@@ -71,7 +71,6 @@ cp -r ./systemconfig/themes/* ~/.themes/
 cp -r ./systemconfig/icons/* ~/.icons/
 
 # setup openrgb
-sudo pacman -S openrgb
 bash ./dotfiles/openrgbconf/openrgb.sh
 
 # Ask for Reboot
