@@ -51,7 +51,7 @@ done
 flatpaks=(
     "com.github.tchx84.Flatseal"
     "com.mattjakeman.ExtensionManager"
-    "io.gitlab.zen_browser.zen"
+    "io.github.zen_browser.zen"
 )
 # Iterate over the list and install if not already installed
 for app in "${flatpaks[@]}"; do
