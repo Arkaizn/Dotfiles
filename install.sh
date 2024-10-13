@@ -7,6 +7,7 @@ NC="\033[0m" # No Color
 
 # Functions
 ask_install_zsh() {
+    echo -e "${YELLOW}When you install Zsh, it will prompt you to start using it. If you choose to do so, you can type 'exit' in Zsh to return to your previous shell, allowing the script to continue running.${NC}"
     echo -e "${YELLOW}Do you want to install zsh and configure it? (y/n)${NC}"
     read -r -p "Answer: " response
     case "$response" in
