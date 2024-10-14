@@ -104,16 +104,7 @@ echo -e "${YELLOW}Do you want to install some other apps that you probably need?
     esac
 
 # install nvidia drivers for Maxwell (NV110) series and newer
-echo -e "${YELLOW}Do you want to install the nvidia drivers for Maxwell (NV110) series and newer? (y/n)${NC}"
-    read -r -p "Answer: " response
-    case "$response" in
-        ""|[yY][eE][sS]|[yY])
-            bash ./nvidia.sh
-            ;;
-        *)
-            echo -e "${YELLOW}Skipping...${NC}"
-            ;;
-    esac
+
 
 # Ask for Reboot
 echo -e "${GREEN}Installation complete! GNOME is set up and running.${NC}"
