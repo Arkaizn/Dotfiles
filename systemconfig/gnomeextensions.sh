@@ -30,7 +30,7 @@ do
     rm ${EXTENSION_ID}.zip
 done
 
-sudo pacman -S meson --noconfirm
+sudo pacman -S meson gstreamer gst-libav gst-plugins-ugly --noconfirm
 (
 git clone https://github.com/jeffshee/gnome-ext-hanabi.git -b gnome-47
 cd gnome-ext-hanabi
