@@ -34,4 +34,4 @@ sudo pacman -S meson --noconfirm
 
 git clone https://github.com/jeffshee/gnome-ext-hanabi.git -b gnome-47
 
-bash ./systemconfig/gnome-ext-hanabi/run.sh install
+bash /systemconfig/gnome-ext-hanabi/run.sh install
