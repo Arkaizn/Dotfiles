@@ -40,4 +40,16 @@ echo -e "${YELLOW}Do you want to install some other apps that you probably need?
             ;;
     esac
 
+# install extensions
+echo -e "${YELLOW}Do you want to install gnome extensions, is needed for the theme of gnome. (y/n)${NC}"
+    read -r -p "Answer: " response
+    case "$response" in
+        ""|[yY][eE][sS]|[yY])
+            bash ./systemconfig/gnomeextensions.sh
+            ;;
+        *)
+            echo -e "${YELLOW}Skipping...${NC}"
+            ;;
+    esac
+
 # install nvidia drivers for Maxwell (NV110) series and newer
