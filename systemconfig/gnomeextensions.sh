@@ -5,7 +5,6 @@ array=(
 https://extensions.gnome.org/extension/19/user-themes/
 https://extensions.gnome.org/extension/6796/better-end-session-dialog/
 https://extensions.gnome.org/extension/3193/blur-my-shell/
-https://extensions.gnome.org/extension/4684/useless-gaps/
 https://extensions.gnome.org/extension/307/dash-to-dock/
 https://extensions.gnome.org/extension/3628/arcmenu/
 https://extensions.gnome.org/extension/1010/archlinux-updates-indicator/
