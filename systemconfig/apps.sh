@@ -4,7 +4,6 @@
 aur_packages=(
     "vscodium-bin"
     "nordvpn-bin"
-    "modrinth-app"
     "vesktop-bin"
 )
 pacman_packages=(
@@ -17,6 +16,7 @@ flatpaks=(
     "com.github.tchx84.Flatseal"
     "com.mattjakeman.ExtensionManager"
     "io.github.zen_browser.zen"
+    "com.modrinth.ModrinthApp"
 )
 
 
