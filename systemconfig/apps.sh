@@ -5,6 +5,7 @@ aur_packages=(
     "vscodium-bin"
     "nordvpn-bin"
     "modrinth-app"
+    "vesktop-bin"
 )
 pacman_packages=(
     "steam"
@@ -59,3 +60,13 @@ for app in "${flatpaks[@]}"; do
         echo "$app is already installed. Skipping installation."
     fi
 done
+
+# setting discord theme
+(
+    git clone https://github.com/ClearVision/ClearVision-v6.git
+    cd ClearVision-v6
+    cp ./ClearVision_v6.theme.css ~/.config/vesktop
+    cd ..
+    rm -fr ClearVision-v6
+)
+# deleting 
