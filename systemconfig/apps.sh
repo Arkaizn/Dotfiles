@@ -61,12 +61,11 @@ for app in "${flatpaks[@]}"; do
     fi
 done
 
-# setting discord theme
+# setting vesktop theme
 (
     git clone https://github.com/ClearVision/ClearVision-v6.git
     cd ClearVision-v6
-    cp ./ClearVision_v6.theme.css ~/.config/vesktop
+    cp ./ClearVision_v6.theme.css ~/.config/vesktop/themes
     cd ..
     rm -fr ClearVision-v6
 )
-# deleting 
