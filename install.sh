@@ -31,10 +31,16 @@ essential_packages=(
     curl
     wget
     fastfetch
-    xorg
-    xorg-server
-    gnome
-    gdm
+    hyprland
+    sddm
+    alacritty
+    wlogout
+    waybar
+    hyprpaper
+    hyprlock
+    hyprcursor
+    xdg-desktop-portal-hyprland
+    ntfs-3g
 )
 
 # Show packages that will be installed
@@ -60,12 +66,11 @@ esac
 ask_install_zsh
 
 # Enable services
-echo -e "${YELLOW}Enabling GDM service...${NC}"
-sudo systemctl enable gdm.service
+echo -e "${YELLOW}Enabling Sddm service...${NC}"
+sudo systemctl enable sddm.service
 
 # Ask for Reboot
-echo -e "${GREEN}Installation complete! GNOME is set up and running.${NC}"
-echo -e "${YELLOW}If you want to install the gnome extensions, you will need to start the /systemconfig/gnomeextensions.sh, after you log into gnome${NC}"
+echo -e "${GREEN}Installation complete! Hyprland is set up and running.${NC}"
 echo -e "${YELLOW}Do you want to reboot? (y/n)${NC}"
     read -r -p "Answer: " response
     case "$response" in
@@ -74,6 +79,6 @@ echo -e "${YELLOW}Do you want to reboot? (y/n)${NC}"
             ;;
         *)
             echo -e "${YELLOW}Skipping...${NC}"
-            sudo systemctl start gdm.service
+            sudo systemctl start sddm.service
             ;;
     esac
