@@ -106,4 +106,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias ff='fastfetch'
 
-ff --config arch
+wal -R
+clear
+ff
