@@ -24,7 +24,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # Copy Dotfiles (assuming .zshrc is in the same directory as the script)
 echo -e "${YELLOW}Copying .zshrc to home directory...${NC}"
-cp ./dotfiles/zshconf/.zshrc ~/
+cp ./systemconfig/zshconf/.zshrc ~/
 
 # Inform the user to open a new terminal
 echo -e "${GREEN}Zsh is now installed and configured!${NC}"

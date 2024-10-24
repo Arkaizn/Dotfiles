@@ -5,7 +5,7 @@ echo -e "${YELLOW}Do you want to install openrgb? (y/n)${NC}"
     read -r -p "Answer: " response
     case "$response" in
         ""|[yY][eE][sS]|[yY])
-            bash ./dotfiles/openrgbconf/openrgb.sh
+            bash ./systemconfig/openrgbconf/openrgb.sh
             ;;
         *)
             echo -e "${YELLOW}Skipping...${NC}"
