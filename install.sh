@@ -5,22 +5,6 @@ GREEN="\033[0;32m"
 YELLOW="\033[1;33m"
 NC="\033[0m" # No Color
 
-# Functions
-ask_install_zsh() {
-    echo -e "${YELLOW}When you install Zsh, it will prompt you to start using it. If you choose to do so, you can type 'exit' in Zsh to return to your previous shell, allowing the script to continue running.${NC}"
-    echo -e "${YELLOW}Do you want to install zsh and configure it? (y/n)${NC}"
-    read -r -p "Answer: " response
-    case "$response" in
-        ""|[yY][eE][sS]|[yY])
-            echo -e "${YELLOW}Installing and configuring zsh...${NC}"
-            bash ./dotfiles/zshconf/zshinstall.sh
-            ;;
-        *)
-            echo -e "${YELLOW}Skipping zsh installation.${NC}"
-            ;;
-    esac
-}
-
 # Update system
 echo -e "${YELLOW}Updating packages...${NC}"
 sudo pacman -Syu --noconfirm
@@ -63,7 +47,18 @@ case "$proceed" in
 esac
 
 # Ask if user wants to install zsh
-ask_install_zsh
+echo -e "${YELLOW}When you install Zsh, it will prompt you to start using it. If you choose to do so, you can type 'exit' in Zsh to return to your previous shell, allowing the script to continue running.${NC}"
+echo -e "${YELLOW}Do you want to install zsh and configure it? (y/n)${NC}"
+read -r -p "Answer: " response
+case "$response" in
+    ""|[yY][eE][sS]|[yY])
+        echo -e "${YELLOW}Installing and configuring zsh...${NC}"
+        bash ./dotfiles/zshconf/zshinstall.sh
+        ;;
+    *)
+        echo -e "${YELLOW}Skipping zsh installation.${NC}"
+        ;;
+esac
 
 # Enable services
 echo -e "${YELLOW}Enabling Sddm service...${NC}"
