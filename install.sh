@@ -25,6 +25,7 @@ essential_packages=(
     hyprcursor
     xdg-desktop-portal-hyprland
     ntfs-3g
+    p7zip
 )
 
 # Show packages that will be installed
