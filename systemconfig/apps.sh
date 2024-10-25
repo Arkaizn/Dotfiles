@@ -2,12 +2,21 @@
 
 # packages list
 aur_packages=(
-    "vscodium-bin"
+    "ani-cli"
+    "ferdium"
+    "hyprshot"
+    "iwgtk"
     "nordvpn-bin"
+    "pyprland"
+    "rustdesk"
     "vesktop-bin"
+    "vmware-workstation"
+    "vscodium-bin"
     "wlogout"
+    "zen-browser-avx2-bin"    
 )
 pacman_packages=(
+    "wine"
     "steam"
     "thunderbird"
     "pacman-contrib"
@@ -15,9 +24,9 @@ pacman_packages=(
 )
 flatpaks=(
     "com.github.tchx84.Flatseal"
-    "com.mattjakeman.ExtensionManager"
-    "io.github.zen_browser.zen"
-    "com.modrinth.ModrinthApp"
+    "org.gnome.Boxes"
+    "sh.cider.Cider"
+    "ca.desrt.dconf-editor"
 )
 
 
@@ -66,6 +75,14 @@ for app in "${flatpaks[@]}"; do
         echo "$app is already installed. Skipping installation."
     fi
 done
+
+# Curl
+# modrinth appimage
+(
+    cd ~
+    curl -L -o modrinth.AppImage "https://launcher-files.modrinth.com/versions/0.8.9/linux/Modrinth%20App_0.8.9_amd64.AppImage"
+    chmod +x modrinth.AppImage
+)
 
 # setting vesktop theme
 (
