@@ -26,6 +26,7 @@ essential_packages=(
     xdg-desktop-portal-hyprland
     ntfs-3g
     p7zip
+    wofi
 )
 
 # Show packages that will be installed
@@ -62,7 +63,7 @@ case "$response" in
 esac
 
 # install config
-bash ./systemconfig/hypr.sh
+bash ./systemconfig/config.sh
 
 
 # done
