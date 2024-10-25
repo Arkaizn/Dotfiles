@@ -53,7 +53,7 @@ done
 # Iterate over the Pacman packages and install if not already installed
 for pkg in "${pacman_packages[@]}"; do
     if ! pacman -Q "$pkg" &> /dev/null; then
-        sudo pacman -S --needed "$pkg"
+        sudo pacman -S --needed "$pkg" --noconfirm
     else
         echo "$pkg is already installed. Skipping installation."
     fi
