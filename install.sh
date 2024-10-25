@@ -18,7 +18,6 @@ essential_packages=(
     hyprland
     sddm
     alacritty
-    wlogout
     waybar
     hyprpaper
     hyprlock
