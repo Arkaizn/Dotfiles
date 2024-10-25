@@ -52,6 +52,11 @@ for pkg in "${pacman_packages[@]}"; do
     fi
 done
 
+# install flatpak manager and add flathub
+sudo pacman -S flatpak --noconfirm
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+
 # Iterate over the list and install if not already installed
 for app in "${flatpaks[@]}"; do
     if ! flatpak list | grep -q "$app"; then
