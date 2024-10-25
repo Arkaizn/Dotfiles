@@ -44,8 +44,7 @@ rm -rf yay
 # Iterate over the AUR packages and install if not already installed
 for pkg in "${aur_packages[@]}"; do
     if ! yay -Q "$pkg" &> /dev/null; then
-        echo "Installing $pkg from AUR..."
-        yay -S --needed "$pkg"
+        yay -S --needed "$pkg" --noconfirm --sudoloop
     else
         echo "$pkg is already installed. Skipping installation."
     fi
@@ -54,7 +53,6 @@ done
 # Iterate over the Pacman packages and install if not already installed
 for pkg in "${pacman_packages[@]}"; do
     if ! pacman -Q "$pkg" &> /dev/null; then
-        echo "Installing $pkg via Pacman..."
         sudo pacman -S --needed "$pkg"
     else
         echo "$pkg is already installed. Skipping installation."
@@ -69,8 +67,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # Iterate over the list and install if not already installed
 for app in "${flatpaks[@]}"; do
     if ! flatpak list | grep -q "$app"; then
-        echo "Installing $app..."
-        flatpak install -y flathub "$app"
+        flatpak install -y flathub "$app" -y
     else
         echo "$app is already installed. Skipping installation."
     fi
