@@ -5,6 +5,7 @@ aur_packages=(
     "vscodium-bin"
     "nordvpn-bin"
     "vesktop-bin"
+    "wlogout"
 )
 pacman_packages=(
     "steam"
