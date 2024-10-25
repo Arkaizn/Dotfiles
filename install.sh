@@ -27,6 +27,7 @@ essential_packages=(
     ntfs-3g
     p7zip
     wofi
+    nautilus
 )
 
 # Show packages that will be installed
