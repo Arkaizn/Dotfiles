@@ -5,10 +5,11 @@ GREEN="\033[0;32m"
 YELLOW="\033[1;33m"
 NC="\033[0m" # No Color
 
-# Update system
+# 1. Update system
 echo -e "${YELLOW}Updating packages...${NC}"
 sudo pacman -Syu --noconfirm
 
+# 2. installing essential packages
 # Define essential packages
 essential_packages=(
     nano
@@ -46,20 +47,25 @@ case "$proceed" in
         ;;
 esac
 
-# Ask if user wants to install zsh
+# 3. install zsh
 echo -e "${YELLOW}When you install Zsh, it will prompt you to start using it. If you choose to do so, you can type 'exit' in Zsh to return to your previous shell, allowing the script to continue running.${NC}"
 echo -e "${YELLOW}Do you want to install zsh and configure it? (y/n)${NC}"
 read -r -p "Answer: " response
 case "$response" in
     ""|[yY][eE][sS]|[yY])
         echo -e "${YELLOW}Installing and configuring zsh...${NC}"
-        bash ./systemconfig/zshconf/zshinstall.sh
+        bash ./systemconfig/zshinstall.sh
         ;;
     *)
         echo -e "${YELLOW}Skipping zsh installation.${NC}"
         ;;
 esac
 
+# install config
+bash ./systemconfig/hypr.sh
+
+
+# done
 # Enable services
 echo -e "${YELLOW}Enabling Sddm service...${NC}"
 sudo systemctl enable sddm.service
