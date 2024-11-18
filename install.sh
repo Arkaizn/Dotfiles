@@ -17,9 +17,7 @@ essential_packages=(
     wget
     fastfetch
     hyprland
-    sddm
     alacritty
-    waybar
     hyprpaper
     hyprlock
     hyprcursor
@@ -82,6 +80,5 @@ echo -e "${YELLOW}Do you want to reboot? (y/n)${NC}"
             ;;
         *)
             echo -e "${YELLOW}Skipping...${NC}"
-            sudo systemctl start sddm.service
             ;;
     esac
