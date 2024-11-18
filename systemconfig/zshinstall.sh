@@ -15,7 +15,8 @@ chsh -s $(which zsh)
 
 # Install Oh My Zsh
 echo -e "${YELLOW}Installing Oh My Zsh...${NC}"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 
 # Install Zsh plugins
 echo -e "${YELLOW}Installing Zsh plugins...${NC}"
