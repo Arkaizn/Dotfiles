@@ -55,6 +55,24 @@ case "$proceed" in
         ;;
 esac
 
+# Check if yay is installed
+if command -v yay &>/dev/null; then
+    echo "yay is already installed. Skipping installation."
+else
+    echo "yay is not installed. Proceeding with installation."
+
+    # Install necessary dependencies
+    sudo pacman -S --needed base-devel
+
+    # Clone, build, and install yay in a subshell
+    (
+        git clone https://aur.archlinux.org/yay.git
+        cd yay || exit 1
+        makepkg -si
+    )
+    rm -rf yay
+fi
+
 # 3. install zsh
 echo -e "${YELLOW}When you install Zsh, it will prompt you to start using it. If you choose to do so, you can type 'exit' in Zsh to return to your previous shell, allowing the script to continue running.${NC}"
 echo -e "${YELLOW}Do you want to install zsh and configure it? (y/n)${NC}"

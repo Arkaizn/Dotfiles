@@ -29,17 +29,23 @@ flatpaks=(
     "ca.desrt.dconf-editor"
 )
 
+# Check if yay is installed
+if command -v yay &>/dev/null; then
+    echo "yay is already installed. Skipping installation."
+else
+    echo "yay is not installed. Proceeding with installation."
 
-# yay installation
-# Install necessary dependencies
-sudo pacman -S --needed base-devel
-# Clone, build, and install yay in a subshell
-(
-    git clone https://aur.archlinux.org/yay.git
-    cd yay || exit 1
-    makepkg -si
-)
-rm -rf yay
+    # Install necessary dependencies
+    sudo pacman -S --needed base-devel
+
+    # Clone, build, and install yay in a subshell
+    (
+        git clone https://aur.archlinux.org/yay.git
+        cd yay || exit 1
+        makepkg -si
+    )
+    rm -rf yay
+fi
 
 # Iterate over the AUR packages and install if not already installed
 for pkg in "${aur_packages[@]}"; do
