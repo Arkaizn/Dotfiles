@@ -21,6 +21,8 @@ pacman_packages=(
     "thunderbird"
     "pacman-contrib"
     "gnome-terminal"
+    "swaylock"
+    "swaync"
 )
 flatpaks=(
     "com.github.tchx84.Flatseal"
