@@ -26,6 +26,7 @@ essential_packages=(
     p7zip
     wofi
     nautilus
+    zen-browser-avx2-bin
 )
 
 # Show packages that will be installed
@@ -40,7 +41,14 @@ read -r -p "Answer: " proceed
 case "$proceed" in
     ""|[yY][eE][sS]|[yY])
         echo -e "${YELLOW}Installing essential packages...${NC}"
-        sudo pacman -S --noconfirm "${essential_packages[@]}"
+        for package in "${essential_packages[@]}"; do
+            echo -e "${YELLOW}Installing $package...${NC}"
+            if sudo pacman -S --noconfirm "$package"; then
+                echo -e "${GREEN}$package installed successfully.${NC}"
+            else
+                echo -e "${RED}Failed to install $package. Skipping...${NC}"
+            fi
+        done
         ;;
     *)
         echo -e "${YELLOW}Installation cancelled. Skipping...${NC}"
