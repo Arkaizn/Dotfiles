@@ -82,7 +82,7 @@ else
 fi
 
 # install browser
-yay -S zen-browser-bin
+yay -S zen-browser-bin --noconfirm --noanswerclean --noansweredit
 
 # 3. install zsh
 echo -e "${YELLOW}When you install Zsh, it will prompt you to start using it. If you choose to do so, you can type 'exit' in Zsh to return to your previous shell, allowing the script to continue running.${NC}"
