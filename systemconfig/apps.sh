@@ -13,7 +13,8 @@ aur_packages=(
     "vmware-workstation"
     "vscodium-bin"
     "wlogout"
-    "zen-browser-avx2-bin"    
+    "zen-browser-avx2-bin"
+    "pywal-git"  
 )
 pacman_packages=(
     "wine"
@@ -52,7 +53,7 @@ fi
 # Iterate over the AUR packages and install if not already installed
 for pkg in "${aur_packages[@]}"; do
     if ! yay -Q "$pkg" &> /dev/null; then
-        yay -S --needed "$pkg" --noconfirm --sudoloop
+        yay -S --needed "$pkg" --noconfirm --sudoloop --noanswerclean --noansweredit
     else
         echo "$pkg is already installed. Skipping installation."
     fi
@@ -80,14 +81,6 @@ for app in "${flatpaks[@]}"; do
         echo "$app is already installed. Skipping installation."
     fi
 done
-
-# Curl
-# modrinth appimage
-(
-    cd ~
-    curl -L -o modrinth.AppImage "https://launcher-files.modrinth.com/versions/0.8.9/linux/Modrinth%20App_0.8.9_amd64.AppImage"
-    chmod +x modrinth.AppImage
-)
 
 # setting vesktop theme
 (
