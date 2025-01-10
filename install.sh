@@ -26,7 +26,7 @@ essential_packages=(
     p7zip
     wofi
     nautilus
-    zen-browser-avx2-bin
+    zen-browser-bin
 )
 
 essential_vm_packages=(
