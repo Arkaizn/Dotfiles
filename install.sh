@@ -120,6 +120,10 @@ case "$proceed" in
         ;;
 esac
 
+# set theme and icons
+bash ./systemconfig/theme.sh
+bash ./systemconfig/icons.sh
+
 # done
 # Enable services
 echo -e "${YELLOW}Enabling Sddm service...${NC}"
