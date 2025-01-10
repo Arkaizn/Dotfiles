@@ -26,7 +26,7 @@ essential_packages=(
     p7zip
     rofi
     thunar
-    zen-browser-bin
+    waybar
 )
 
 essential_vm_packages=(
@@ -80,6 +80,9 @@ else
     )
     rm -rf yay
 fi
+
+# install browser
+yay -S zen-browser-bin
 
 # 3. install zsh
 echo -e "${YELLOW}When you install Zsh, it will prompt you to start using it. If you choose to do so, you can type 'exit' in Zsh to return to your previous shell, allowing the script to continue running.${NC}"
