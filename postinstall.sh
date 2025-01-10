@@ -5,7 +5,7 @@ echo -e "${YELLOW}Do you want to install openrgb? (y/n)${NC}"
     read -r -p "Answer: " response
     case "$response" in
         ""|[yY][eE][sS]|[yY])
-            bash ./systemconfig/openrgbconf/openrgb.sh
+            bash ./additions/openrgb/openrgb.sh
             ;;
         *)
             echo -e "${YELLOW}Skipping...${NC}"
@@ -17,7 +17,7 @@ echo -e "${YELLOW}Do you want to install some other apps that you probably need?
     read -r -p "Answer: " response
     case "$response" in
         ""|[yY][eE][sS]|[yY])
-            bash ./systemconfig/apps.sh
+            bash ./additions/apps.sh
             ;;
         *)
             echo -e "${YELLOW}Skipping...${NC}"
