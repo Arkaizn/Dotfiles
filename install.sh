@@ -24,8 +24,8 @@ essential_packages=(
     xdg-desktop-portal-hyprland
     ntfs-3g
     p7zip
-    wofi
-    nautilus
+    rofi
+    thunar
     zen-browser-bin
 )
 
