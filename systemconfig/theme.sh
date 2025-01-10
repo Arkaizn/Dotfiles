@@ -5,3 +5,4 @@
     cd Graphite-gtk-theme
     ./install.sh --tweaks float colorful nord rimless -t teal
 )
+gsettings set org.gnome.desktop.interface gtk-theme 'Graphite-teal-Dark-nord'
