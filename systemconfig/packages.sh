@@ -11,7 +11,6 @@ essential_packages=(
     fastfetch
     hyprland
     alacritty
-    hyprpaper
     hyprlock
     hyprcursor
     xdg-desktop-portal-hyprland
