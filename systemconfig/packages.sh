@@ -22,6 +22,7 @@ essential_packages=(
     waybar
     wlogout
     swaync
+    pywal
     zen-browser-bin
 )
 
