@@ -11,3 +11,9 @@ cp -r ./.config/waybar ~/.config
 
 # copy fastfetch config
 cp -r ./.config/fastfetch ~/.config
+
+# copy swaync config
+cp -r ./.config/swaync ~/.config
+
+# copy wlogout config
+cp -r ./.config/wlogout ~/.config
