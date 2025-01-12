@@ -23,6 +23,7 @@ essential_packages=(
     wlogout
     swaync
     pywal
+    swww
     zen-browser-bin
 )
 
