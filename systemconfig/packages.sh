@@ -20,6 +20,8 @@ essential_packages=(
     rofi
     thunar
     waybar
+    wlogout
+    swaync
     zen-browser-bin
 )
 
