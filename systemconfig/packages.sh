@@ -80,3 +80,25 @@ case "$proceed" in
         echo -e "${YELLOW}Installation cancelled. Skipping...${NC}"
         ;;
 esac
+
+# Ask if vmware
+echo -e "${YELLOW}Are you in a Vmware Virtual Machine? (y/n)${NC}"
+read -r -p "Answer: " proceed
+case "$proceed" in
+    ""|[yY][eE][sS]|[yY])
+        echo -e "${YELLOW}Installing essential packages for vmware...${NC}"
+        for vm_package in "${essential_vm_packages[@]}"; do
+            echo -e "${YELLOW}Installing $vm_package...${NC}"
+            if sudo yay -S --noconfirm --noanswerclean --noansweredit "$vm_package"; then
+                echo -e "${GREEN}$vm_package installed successfully.${NC}"
+            else
+                echo -e "${RED}Failed to install $vm_package. Skipping...${NC}"
+                read
+            fi
+        done
+        sudo systemctl enable --now vmtoolsd.service # enable service
+        ;;
+    *)
+        echo -e "${YELLOW}Installation cancelled. Skipping...${NC}"
+        ;;
+esac
