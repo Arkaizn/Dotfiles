@@ -24,6 +24,7 @@ essential_packages=(
     pywal
     swww
     zen-browser-bin
+    nerd-fonts
 )
 
 essential_vm_packages=(
