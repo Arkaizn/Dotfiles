@@ -17,3 +17,6 @@ cp -r ./.config/swaync ~/.config
 
 # copy wlogout config
 cp -r ./.config/wlogout ~/.config
+
+# copy Wofi config
+cp -r ./.config/wofi ~/.config
