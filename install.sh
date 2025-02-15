@@ -26,16 +26,37 @@ case "$response" in
 esac
 
 # install config files (.config folder)
-bash ./systemconfig/config.sh
+echo -e "${YELLOW}Do you want to Copy and paste the .config files? (y/n)${NC}"
+read -r -p "Answer: " response
+case "$response" in
+    ""|[yY][eE][sS]|[yY])
+        echo -e "${YELLOW}Copying .config folder...${NC}"
+        bash ./systemconfig/config.sh
+        ;;
+    *)
+        echo -e "${YELLOW}Skipping .config installation.${NC}"
+        ;;
+esac
+
 
 # set theme and icons
-bash ./systemconfig/theme.sh
-bash ./systemconfig/icons.sh
+echo -e "${YELLOW}Do you want to set the theme and icons for GTK(inccludes cursor)? (y/n)${NC}"
+read -r -p "Answer: " response
+case "$response" in
+    ""|[yY][eE][sS]|[yY])
+        echo -e "${YELLOW}Setting gtk theme and icons...${NC}"
+        bash ./systemconfig/theme.sh
+        bash ./systemconfig/icons.sh
+        ;;
+    *)
+        echo -e "${YELLOW}Skipping gtk theme and icons installation.${NC}"
+        ;;
+esac
 
-# done
+# --------done--------
 # Enable services
-echo -e "${YELLOW}Enabling Sddm service...${NC}"
-sudo systemctl enable sddm.service
+# echo -e "${YELLOW}Enabling Sddm service...${NC}"
+# sudo systemctl enable sddm.service
 
 # Ask for Reboot
 echo -e "${GREEN}Installation complete! Hyprland is set up and running.${NC}"
