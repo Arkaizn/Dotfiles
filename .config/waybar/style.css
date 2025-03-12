@@ -88,7 +88,7 @@ tooltip {
     transition: all 1s ease;
 }
 #bluetooth{
-    padding: 0px 5px;
+    padding: 0px 0px;
     transition: all .3s ease;
     color:@color7;
 
