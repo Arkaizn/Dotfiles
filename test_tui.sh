@@ -1,32 +1,32 @@
 #!/bin/bash
 
 # Create a temporary .dialogrc file
-DIALOGRC_FILE=$(mktemp)
-cat <<EOF > "$DIALOGRC_FILE"
+#DIALOGRC_FILE=$(mktemp)
+#cat <<EOF > "$DIALOGRC_FILE"
 # Enable shadow for subtle depth
-use_shadow = OFF
+#use_shadow = OFF
 
 # Set background to black (Simple and sleek)
-screen_color = (BLACK, BLACK, ON)
+#screen_color = (BLACK, BLACK, ON)
 
 # Dialog box background (Dark gray instead of gray, cleaner and less harsh)
-dialog_color = (WHITE, BLACK, ON)
+#dialog_color = (WHITE, BLACK, ON)
 
 # Title text color (Muted cyan for subtle contrast)
-title_color = (BLACK, CYAN, ON)
+#title_color = (BLACK, CYAN, ON)
 
 # Border (Simple white to keep it clean)
-border_color = (WHITE, BLACK, ON)
+#border_color = (WHITE, BLACK, ON)
 
 # Button Active Color (Green for pop but not too intense)
-button_active_color = (BLACK, GREEN, ON)
+#button_active_color = (BLACK, GREEN, ON)
 
 # Button Inactive Color (Light gray for non-interactive buttons)
-button_inactive_color = (WHITE, BLACK, ON)
+#button_inactive_color = (WHITE, BLACK, ON)
 
 # Progress Bar (Green for clean visibility)
-gauge_color = (WHITE, GREEN, ON)
-EOF
+#gauge_color = (WHITE, GREEN, ON)
+#EOF
 
 
 # Set the environment variable to use the custom dialog colors
