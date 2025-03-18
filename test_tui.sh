@@ -3,12 +3,26 @@
 # Create a temporary .dialogrc file
 DIALOGRC_FILE=$(mktemp)
 cat <<EOF > "$DIALOGRC_FILE"
+# Enable shadows for a 3D effect
 use_shadow = ON
-screen_color = (BLUE,WHITE,ON)
-dialog_color = (WHITE,BLUE,ON)
-title_color = (WHITE,RED,ON)
-border_color = (WHITE,BLUE,ON)
-button_active_color = (WHITE,RED,ON)
+
+# Background (Dark Purple)
+screen_color = (BLACK,WHITE,ON)
+
+# Dialog Box Background (Soft Gray)
+dialog_color = (WHITE,BLACK,ON)
+
+# Title Bar (Neon Blue)
+title_color = (WHITE,BLUE,ON)
+
+# Borders (Subtle Gray)
+border_color = (GRAY,BLACK,ON)
+
+# Active Button (White on Soft Purple)
+button_active_color = (BLACK,MAGENTA,ON)
+
+# Inactive Button (White on Dark Gray)
+button_inactive_color = (WHITE,GRAY,ON)
 EOF
 
 
