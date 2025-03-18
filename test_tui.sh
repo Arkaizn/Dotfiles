@@ -3,13 +3,29 @@
 # Create a temporary .dialogrc file
 DIALOGRC_FILE=$(mktemp)
 cat <<EOF > "$DIALOGRC_FILE"
+# Enable shadows for depth effect
 use_shadow = ON
-screen_color = (BLACK,WHITE,ON)
-dialog_color = (WHITE,BLACK,ON)
-title_color = (WHITE,BLUE,ON)
-border_color = (GRAY,BLACK,ON)
-button_active_color = (BLACK,MAGENTA,ON)
-button_inactive_color = (WHITE,GRAY,ON)
+
+# Background (Dark Gray)
+screen_color = (BLACK, WHITE, ON)
+
+# Dialog Box (Black with White text)
+dialog_color = (WHITE, BLACK, ON)
+
+# Title Bar (Cyan for a clean look)
+title_color = (WHITE, CYAN, ON)
+
+# Borders (Dark Gray for subtle look)
+border_color = (WHITE, BLACK, ON)
+
+# Active Button (White text on Purple)
+button_active_color = (WHITE, MAGENTA, ON)
+
+# Inactive Button (White on Dark Gray)
+button_inactive_color = (WHITE, BLACK, ON)
+
+# Progress Bar (White on Blue)
+gauge_color = (WHITE, BLUE, ON)
 EOF
 
 
