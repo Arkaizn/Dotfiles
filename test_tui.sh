@@ -12,7 +12,7 @@ done_steps=()
 # Überprüfen, ob 'dialog' installiert ist und es installieren, falls es fehlt
 check_dialog_installed() {
     if ! command -v dialog &>/dev/null; then
-        dialog --msgbox "${YELLOW}Dialog wird installiert...${NC}" 6 50
+        dialog --msgbox "Dialog wird installiert...${NC}" 6 50
         sudo pacman -S dialog --noconfirm
     fi
 }
@@ -54,14 +54,14 @@ mark_done() {
 
 # Systemupdate
 update_system() {
-    dialog --msgbox "${YELLOW}System wird aktualisiert...${NC}" 6 50
+    dialog --msgbox "System wird aktualisiert...${NC}" 6 50
     sudo pacman -Syu --noconfirm
     mark_done "update_system"
 }
 
 # Essenzielle Pakete installieren
 install_packages() {
-    dialog --msgbox "${YELLOW}Installiere essenzielle Pakete...${NC}" 6 50
+    dialog --msgbox "Installiere essenzielle Pakete...${NC}" 6 50
     bash ./systemconfig/packages.sh
     mark_done "install_packages"
 }
@@ -69,24 +69,24 @@ install_packages() {
 # Zsh installieren
 install_zsh() {
     if ask_user "Möchtest du Zsh installieren und konfigurieren?"; then
-        dialog --msgbox "${YELLOW}Installiere und konfiguriere Zsh...${NC}" 6 50
+        dialog --msgbox "Installiere und konfiguriere Zsh...${NC}" 6 50
         bash ./systemconfig/zshinstall.sh
         mark_done "install_zsh"
     else
-        dialog --msgbox "${YELLOW}Überspringe Zsh-Installation.${NC}" 6 50
+        dialog --msgbox "Überspringe Zsh-Installation.${NC}" 6 50
     fi
 }
 
 # Konfigurationsdateien kopieren
 apply_config() {
-    dialog --msgbox "${YELLOW}Übertrage Konfigurationsdateien...${NC}" 6 50
+    dialog --msgbox "Übertrage Konfigurationsdateien...${NC}" 6 50
     bash ./systemconfig/config.sh
     mark_done "apply_config"
 }
 
 # Theme und Icons setzen
 set_theme_and_icons() {
-    dialog --msgbox "${YELLOW}Setze Theme und Icons...${NC}" 6 50
+    dialog --msgbox "Setze Theme und Icons...${NC}" 6 50
     bash ./systemconfig/theme.sh
     bash ./systemconfig/icons.sh
     mark_done "set_theme_and_icons"
@@ -94,7 +94,7 @@ set_theme_and_icons() {
 
 # SDDM aktivieren
 enable_sddm() {
-    dialog --msgbox "${YELLOW}Aktiviere SDDM...${NC}" 6 50
+    dialog --msgbox "Aktiviere SDDM...${NC}" 6 50
     sudo systemctl enable sddm.service
     mark_done "enable_sddm"
 }
