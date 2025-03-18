@@ -4,7 +4,6 @@
 PURPLE="\033[0;35m"
 YELLOW="\033[1;33m"
 CYAN="\033[0;36m"
-WHITE="\033[1;37m"
 NC="\033[0m" # No Color
 
 # Array zur Verfolgung abgeschlossener Schritte
@@ -13,7 +12,7 @@ done_steps=()
 # Überprüfen, ob 'whiptail' installiert ist und es installieren, falls es fehlt
 check_whiptail_installed() {
     if ! command -v whiptail &>/dev/null; then
-        sudo pacman -Sy --noconfirm newt
+        sudo pacman -Sy --noconfirm whiptail
     fi
 }
 
@@ -30,13 +29,13 @@ show_menu() {
         8 "Beenden" 3>&1 1>&2 2>&3)
 
     case $MENUCHOICE in
-        1) [[ ! " ${done_steps[@]} " =~ " update_system " ]] && update_system || whiptail --msgbox "Bereits erledigt." 6 50 ;;
-        2) [[ ! " ${done_steps[@]} " =~ " install_packages " ]] && install_packages || whiptail --msgbox "Bereits erledigt." 6 50 ;;
-        3) [[ ! " ${done_steps[@]} " =~ " install_zsh " ]] && install_zsh || whiptail --msgbox "Bereits erledigt." 6 50 ;;
-        4) [[ ! " ${done_steps[@]} " =~ " apply_config " ]] && apply_config || whiptail --msgbox "Bereits erledigt." 6 50 ;;
-        5) [[ ! " ${done_steps[@]} " =~ " set_theme_and_icons " ]] && set_theme_and_icons || whiptail --msgbox "Bereits erledigt." 6 50 ;;
-        6) [[ ! " ${done_steps[@]} " =~ " enable_sddm " ]] && enable_sddm || whiptail --msgbox "Bereits erledigt." 6 50 ;;
-        7) run_remaining_steps ;;
+        1) show_action_description "System wird aktualisiert. Dies wird alle installierten Pakete auf den neuesten Stand bringen." && update_system ;;
+        2) show_action_description "Essenzielle Pakete werden installiert. Dies umfasst grundlegende Pakete für das System." && install_packages ;;
+        3) show_action_description "Zsh wird installiert und konfiguriert. Möchten Sie Zsh als Standard-Shell verwenden?" && install_zsh ;;
+        4) show_action_description "Konfigurationsdateien werden übertragen. Dies umfasst die Anpassung des Systems und der Anwendungen." && apply_config ;;
+        5) show_action_description "Theme und Icons werden gesetzt. Dies betrifft das visuelle Erscheinungsbild des Systems." && set_theme_and_icons ;;
+        6) show_action_description "SDDM wird aktiviert. Dies ist der Display-Manager für den Login-Bildschirm." && enable_sddm ;;
+        7) show_action_description "Alle verbleibenden Schritte werden ausgeführt, um das System vollständig zu konfigurieren." && run_remaining_steps ;;
         8) whiptail --msgbox "Installation beendet." 6 50; exit 0 ;;
         *) whiptail --msgbox "Ungültige Auswahl. Bitte erneut versuchen." 6 50 ;;
     esac
@@ -46,6 +45,11 @@ show_menu() {
 ask_user() {
     whiptail --yesno "$1" 6 50
     return $?
+}
+
+# Zeige eine Beschreibung der Aktion
+show_action_description() {
+    whiptail --msgbox "$1" 6 50
 }
 
 mark_done() {
