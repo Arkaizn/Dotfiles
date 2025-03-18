@@ -30,15 +30,15 @@ show_menu() {
         8 "Beenden" 2>&1 >/dev/tty)
 
     case $MENUCHOICE in
-        1) [[ ! " ${done_steps[@]} " =~ " update_system " ]] && update_system || dialog --msgbox "${YELLOW}Bereits erledigt.${NC}" 6 50 ;;
-        2) [[ ! " ${done_steps[@]} " =~ " install_packages " ]] && install_packages || dialog --msgbox "${YELLOW}Bereits erledigt.${NC}" 6 50 ;;
-        3) [[ ! " ${done_steps[@]} " =~ " install_zsh " ]] && install_zsh || dialog --msgbox "${YELLOW}Bereits erledigt.${NC}" 6 50 ;;
-        4) [[ ! " ${done_steps[@]} " =~ " apply_config " ]] && apply_config || dialog --msgbox "${YELLOW}Bereits erledigt.${NC}" 6 50 ;;
-        5) [[ ! " ${done_steps[@]} " =~ " set_theme_and_icons " ]] && set_theme_and_icons || dialog --msgbox "${YELLOW}Bereits erledigt.${NC}" 6 50 ;;
-        6) [[ ! " ${done_steps[@]} " =~ " enable_sddm " ]] && enable_sddm || dialog --msgbox "${YELLOW}Bereits erledigt.${NC}" 6 50 ;;
+        1) [[ ! " ${done_steps[@]} " =~ " update_system " ]] && update_system || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        2) [[ ! " ${done_steps[@]} " =~ " install_packages " ]] && install_packages || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        3) [[ ! " ${done_steps[@]} " =~ " install_zsh " ]] && install_zsh || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        4) [[ ! " ${done_steps[@]} " =~ " apply_config " ]] && apply_config || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        5) [[ ! " ${done_steps[@]} " =~ " set_theme_and_icons " ]] && set_theme_and_icons || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        6) [[ ! " ${done_steps[@]} " =~ " enable_sddm " ]] && enable_sddm || dialog --msgbox "Bereits erledigt." 6 50 ;;
         7) run_remaining_steps ;;
-        8) dialog --msgbox "${PURPLE}Installation beendet.${NC}" 6 50; exit 0 ;;
-        *) dialog --msgbox "${YELLOW}Ungültige Auswahl. Bitte erneut versuchen.${NC}" 6 50 ;;
+        8) dialog --msgbox "Installation beendet." 6 50; exit 0 ;;
+        *) dialog --msgbox "Ungültige Auswahl. Bitte erneut versuchen." 6 50 ;;
     esac
 }
 
