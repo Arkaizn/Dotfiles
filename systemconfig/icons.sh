@@ -7,3 +7,7 @@
     mkdir ~/.icons/
     cp -r Bibata-Modern-Ice ~/.icons/Bibata-Modern-Ice
 )
+
+# Icon Theme ()
+cp -fr ./systemconfig/Icons/Solarized-Violet-gtk-theme-iconpack/ ~/.icons/Icons/Solarized-Violet-gtk-theme-iconpack/
+gsettings set org.gnome.desktop.interface icon-theme 'Solarized-Violet-gtk-theme-iconpack'

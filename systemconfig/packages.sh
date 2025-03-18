@@ -16,7 +16,7 @@ essential_packages=(
     xdg-desktop-portal-hyprland
     ntfs-3g
     p7zip
-    rofi
+    wofi
     thunar
     waybar
     wlogout
