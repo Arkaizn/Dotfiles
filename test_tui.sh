@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# Create a temporary .dialogrc file
+DIALOGRC_FILE=$(mktemp)
+cat <<EOF > "$DIALOGRC_FILE"
+use_shadow = OFF
+screen_color = (BLUE,WHITE,ON)
+dialog_color = (BLUE,WHITE,ON)
+title_color = (WHITE,BLUE,ON)
+EOF
+
+# Set the environment variable to use the custom dialog colors
+export DIALOGRC="$DIALOGRC_FILE"
+
 # Farbdefinitionen
 PURPLE="\033[0;35m"
 YELLOW="\033[1;33m"
@@ -108,6 +120,10 @@ run_remaining_steps() {
     [[ ! " ${done_steps[@]} " =~ " set_theme_and_icons " ]] && set_theme_and_icons
     [[ ! " ${done_steps[@]} " =~ " enable_sddm " ]] && enable_sddm
     dialog --msgbox "${PURPLE}Alle Schritte abgeschlossen!" 6 50
+}
+
+cleanup() {
+    rm -f "$DIALOGRC_FILE"
 }
 
 # Menülogik
