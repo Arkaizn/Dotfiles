@@ -6,25 +6,25 @@ cat <<EOF > "$DIALOGRC_FILE"
 # Enable shadows for depth effect
 use_shadow = ON
 
-# Dark Background with a Soft Glow
-screen_color = (BLACK, BLUE, ON)
+# Pure Black Background
+screen_color = (BLACK, BLACK, ON)
 
-# Dialog Box (Sleek Dark Gray with Cyan Text)
+# Dialog Box (Dark Gray with Neon Cyan Text)
 dialog_color = (CYAN, BLACK, ON)
 
-# Title Bar (Bright Blue for contrast)
-title_color = (WHITE, BLUE, ON)
+# Title Bar (Bright Magenta for a cyber look)
+title_color = (WHITE, MAGENTA, ON)
 
-# Borders (Subtle Gray)
+# Borders (Clean White for separation)
 border_color = (WHITE, BLACK, ON)
 
-# Active Button (Neon Cyan for a modern look)
-button_active_color = (WHITE, CYAN, ON)
+# Active Button (Neon Blue Glow)
+button_active_color = (BLACK, BLUE, ON)
 
-# Inactive Button (Muted Gray)
+# Inactive Button (Subtle Gray)
 button_inactive_color = (WHITE, BLACK, ON)
 
-# Progress Bar (Bright Green for visibility)
+# Progress Bar (Bright Green for modern contrast)
 gauge_color = (WHITE, GREEN, ON)
 EOF
 
