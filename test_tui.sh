@@ -3,11 +3,14 @@
 # Create a temporary .dialogrc file
 DIALOGRC_FILE=$(mktemp)
 cat <<EOF > "$DIALOGRC_FILE"
-use_shadow = OFF
+use_shadow = ON
 screen_color = (BLUE,WHITE,ON)
-dialog_color = (BLUE,WHITE,ON)
-title_color = (WHITE,BLUE,ON)
+dialog_color = (WHITE,BLUE,ON)
+title_color = (WHITE,RED,ON)
+border_color = (WHITE,BLUE,ON)
+button_active_color = (WHITE,RED,ON)
 EOF
+
 
 # Set the environment variable to use the custom dialog colors
 export DIALOGRC="$DIALOGRC_FILE"
@@ -24,10 +27,10 @@ done_steps=()
 # Überprüfen, ob 'dialog' installiert ist und es installieren, falls es fehlt
 check_dialog_installed() {
     if ! command -v dialog &>/dev/null; then
-        dialog --msgbox "Dialog wird installiert..." 6 50
-        sudo pacman -S dialog --noconfirm
+        sudo pacman -Sy --noconfirm dialog
     fi
 }
+
 
 # Funktion zum Anzeigen des Hauptmenüs mit dialog
 show_menu() {
