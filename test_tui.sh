@@ -9,13 +9,13 @@ use_shadow = ON
 # Pure Black Background
 screen_color = (BLACK, BLACK, ON)
 
-# Dialog Box (Dark Gray with Neon Cyan Text)
-dialog_color = (CYAN, BLACK, ON)
+# Dialog Box Background (Dark Navy Blue)
+dialog_color = (WHITE, #0A192F, ON)
 
-# Title Bar (Bright Magenta for a cyber look)
-title_color = (WHITE, MAGENTA, ON)
+# Title Bar (Bright Cyan for contrast)
+title_color = (BLACK, CYAN, ON)
 
-# Borders (Clean White for separation)
+# Borders (Clean White for readability)
 border_color = (WHITE, BLACK, ON)
 
 # Active Button (Neon Blue Glow)
