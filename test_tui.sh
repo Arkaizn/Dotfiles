@@ -1,13 +1,21 @@
 #!/bin/bash
 
 # Farbdefinitionen
-GREEN="\033[0;32m"
+PURPLE="\033[0;35m"
 YELLOW="\033[1;33m"
 CYAN="\033[0;36m"
 NC="\033[0m" # No Color
 
 # Array zur Verfolgung abgeschlossener Schritte
 done_steps=()
+
+# Überprüfen, ob 'dialog' installiert ist und es installieren, falls es fehlt
+check_dialog_installed() {
+    if ! command -v dialog &>/dev/null; then
+        dialog --msgbox "${YELLOW}Dialog wird installiert...${NC}" 6 50
+        sudo pacman -S dialog --noconfirm
+    fi
+}
 
 # Funktion zum Anzeigen des Hauptmenüs mit dialog
 show_menu() {
@@ -29,7 +37,7 @@ show_menu() {
         5) [[ ! " ${done_steps[@]} " =~ " set_theme_and_icons " ]] && set_theme_and_icons || dialog --msgbox "${YELLOW}Bereits erledigt.${NC}" 6 50 ;;
         6) [[ ! " ${done_steps[@]} " =~ " enable_sddm " ]] && enable_sddm || dialog --msgbox "${YELLOW}Bereits erledigt.${NC}" 6 50 ;;
         7) run_remaining_steps ;;
-        8) dialog --msgbox "${GREEN}Installation beendet.${NC}" 6 50; exit 0 ;;
+        8) dialog --msgbox "${PURPLE}Installation beendet.${NC}" 6 50; exit 0 ;;
         *) dialog --msgbox "${YELLOW}Ungültige Auswahl. Bitte erneut versuchen.${NC}" 6 50 ;;
     esac
 }
@@ -99,10 +107,11 @@ run_remaining_steps() {
     [[ ! " ${done_steps[@]} " =~ " apply_config " ]] && apply_config
     [[ ! " ${done_steps[@]} " =~ " set_theme_and_icons " ]] && set_theme_and_icons
     [[ ! " ${done_steps[@]} " =~ " enable_sddm " ]] && enable_sddm
-    dialog --msgbox "${GREEN}Alle Schritte abgeschlossen!${NC}" 6 50
+    dialog --msgbox "${PURPLE}Alle Schritte abgeschlossen!${NC}" 6 50
 }
 
 # Menülogik
+check_dialog_installed
 while true; do
     show_menu
 done
