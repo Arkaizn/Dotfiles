@@ -3,28 +3,28 @@
 # Create a temporary .dialogrc file
 DIALOGRC_FILE=$(mktemp)
 cat <<EOF > "$DIALOGRC_FILE"
-# Enable shadow for depth
-use_shadow = ON
+# Enable shadow for subtle depth
+use_shadow = OFF
 
-# Set background (Pure Black)
+# Set background to black (Simple and sleek)
 screen_color = (BLACK, BLACK, ON)
 
-# Dialog Box Background (Deep Blue)
-dialog_color = (WHITE, BLUE, ON)
+# Dialog box background (Dark gray instead of gray, cleaner and less harsh)
+dialog_color = (WHITE, BLACK, ON)
 
-# Title Bar (Bright Cyan)
-title_color = (WHITE, CYAN, ON)
+# Title text color (Muted cyan for subtle contrast)
+title_color = (BLACK, CYAN, ON)
 
-# Borders (Neon Blue for pop)
-border_color = (BLUE, BLACK, ON)
+# Border (Simple white to keep it clean)
+border_color = (WHITE, BLACK, ON)
 
-# Active Button (Bright Green for modern look)
+# Button Active Color (Green for pop but not too intense)
 button_active_color = (BLACK, GREEN, ON)
 
-# Inactive Button (Subtle Gray)
+# Button Inactive Color (Light gray for non-interactive buttons)
 button_inactive_color = (WHITE, BLACK, ON)
 
-# Progress Bar (Bright Neon Green)
+# Progress Bar (Green for clean visibility)
 gauge_color = (WHITE, GREEN, ON)
 EOF
 
