@@ -1,101 +1,145 @@
 #!/bin/bash
 
+# Create a temporary .dialogrc file
+#DIALOGRC_FILE=$(mktemp)
+#cat <<EOF > "$DIALOGRC_FILE"
+# Enable shadow for subtle depth
+#use_shadow = OFF
+# Set background to black (Simple and sleek)
+#screen_color = (BLACK, BLACK, ON)
+# Dialog box background (Dark gray instead of gray, cleaner and less harsh)
+#dialog_color = (WHITE, BLACK, ON)
+# Title text color (Muted cyan for subtle contrast)
+#title_color = (BLACK, CYAN, ON)
+# Border (Simple white to keep it clean)
+#border_color = (WHITE, BLACK, ON)
+# Button Active Color (Green for pop but not too intense)
+#button_active_color = (BLACK, GREEN, ON)
+# Button Inactive Color (Light gray for non-interactive buttons)
+#button_inactive_color = (WHITE, BLACK, ON)
+# Progress Bar (Green for clean visibility)
+#gauge_color = (WHITE, GREEN, ON)
+#EOF
+
+# Set the environment variable to use the custom dialog colors
+#export DIALOGRC="$DIALOGRC_FILE"
+
 # Farbdefinitionen
-GREEN="\033[0;32m"
+PURPLE="\033[0;35m"
 YELLOW="\033[1;33m"
 CYAN="\033[0;36m"
 NC="\033[0m" # No Color
 
-# Funktion zum Anzeigen des Hauptmenüs
-show_menu() {
-    echo -e "${CYAN}----------------------------------------${NC}"
-    echo -e "${CYAN}      Hyprland Installationsskript${NC}"
-    echo -e "${CYAN}----------------------------------------${NC}"
-    echo -e "${YELLOW}1) System aktualisieren${NC}"
-    echo -e "${YELLOW}2) Essenzielle Pakete installieren${NC}"
-    echo -e "${YELLOW}3) Zsh installieren und konfigurieren${NC}"
-    echo -e "${YELLOW}4) Konfigurationsdateien anwenden${NC}"
-    echo -e "${YELLOW}5) Theme und Icons setzen${NC}"
-    echo -e "${YELLOW}6) SDDM aktivieren${NC}"
-    echo -e "${YELLOW}7) Alle Schritte ausführen${NC}"
-    echo -e "${YELLOW}8) Beenden${NC}"
-    echo -e "${CYAN}----------------------------------------${NC}"
+# Array zur Verfolgung abgeschlossener Schritte
+done_steps=()
+
+# Überprüfen, ob 'dialog' installiert ist und es installieren, falls es fehlt
+check_dialog_installed() {
+    if ! command -v dialog &>/dev/null; then
+        sudo pacman -Sy --noconfirm dialog
+    fi
 }
 
-# Funktion zur Benutzerabfrage
-ask_user() {
-    read -r -p "$1 (y/n): " response
-    case "$response" in
-        ""|[yY][eE][sS]|[yY]) return 0 ;;
-        *) return 1 ;;
+
+# Funktion zum Anzeigen des Hauptmenüs mit dialog
+show_menu() {
+    MENUCHOICE=$(dialog --title "Hyprland Installationsskript" --menu "Wählen Sie eine Option:" 15 50 8 \
+        1 "System aktualisieren" \
+        2 "Essenzielle Pakete installieren" \
+        3 "Zsh installieren und konfigurieren" \
+        4 "Konfigurationsdateien anwenden" \
+        5 "Theme und Icons setzen" \
+        6 "SDDM aktivieren" \
+        7 "Alle verbleibenden Schritte ausführen" \
+        8 "Beenden" 2>&1 >/dev/tty)
+
+    case $MENUCHOICE in
+        1) [[ ! " ${done_steps[@]} " =~ " update_system " ]] && update_system || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        2) [[ ! " ${done_steps[@]} " =~ " install_packages " ]] && install_packages || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        3) [[ ! " ${done_steps[@]} " =~ " install_zsh " ]] && install_zsh || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        4) [[ ! " ${done_steps[@]} " =~ " apply_config " ]] && apply_config || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        5) [[ ! " ${done_steps[@]} " =~ " set_theme_and_icons " ]] && set_theme_and_icons || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        6) [[ ! " ${done_steps[@]} " =~ " enable_sddm " ]] && enable_sddm || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        7) run_remaining_steps ;;
+        8) dialog --msgbox "Installation beendet." 6 50; exit 0 ;;
+        *) dialog --msgbox "Ungültige Auswahl. Bitte erneut versuchen." 6 50 ;;
     esac
+}
+
+# Funktion zur Benutzerabfrage mit dialog
+ask_user() {
+    dialog --yesno "$1" 6 50
+    return $?
+}
+
+mark_done() {
+    done_steps+=("$1")
 }
 
 # Systemupdate
 update_system() {
-    echo -e "${YELLOW}System wird aktualisiert...${NC}"
+    dialog --msgbox "System wird aktualisiert..." 6 50
     sudo pacman -Syu --noconfirm
+    mark_done "update_system"
 }
 
 # Essenzielle Pakete installieren
 install_packages() {
-    echo -e "${YELLOW}Installiere essenzielle Pakete...${NC}"
+    dialog --msgbox "Installiere essenzielle Pakete..." 6 50
     bash ./systemconfig/packages.sh
+    mark_done "install_packages"
 }
 
 # Zsh installieren
 install_zsh() {
     if ask_user "Möchtest du Zsh installieren und konfigurieren?"; then
-        echo -e "${YELLOW}Installiere und konfiguriere Zsh...${NC}"
+        dialog --msgbox "Installiere und konfiguriere Zsh..." 6 50
         bash ./systemconfig/zshinstall.sh
+        mark_done "install_zsh"
     else
-        echo -e "${YELLOW}Überspringe Zsh-Installation.${NC}"
+        dialog --msgbox "Überspringe Zsh-Installation." 6 50
     fi
 }
 
 # Konfigurationsdateien kopieren
 apply_config() {
-    echo -e "${YELLOW}Übertrage Konfigurationsdateien...${NC}"
+    dialog --msgbox "Übertrage Konfigurationsdateien..." 6 50
     bash ./systemconfig/config.sh
+    mark_done "apply_config"
 }
 
 # Theme und Icons setzen
 set_theme_and_icons() {
-    echo -e "${YELLOW}Setze Theme und Icons...${NC}"
+    dialog --msgbox "Setze Theme und Icons..." 6 50
     bash ./systemconfig/theme.sh
     bash ./systemconfig/icons.sh
+    mark_done "set_theme_and_icons"
 }
 
 # SDDM aktivieren
 enable_sddm() {
-    echo -e "${YELLOW}Aktiviere SDDM...${NC}"
+    dialog --msgbox "Aktiviere SDDM..." 6 50
     sudo systemctl enable sddm.service
+    mark_done "enable_sddm"
 }
 
-# Hauptinstallation
-run_full_install() {
-    update_system
-    install_packages
-    install_zsh
-    apply_config
-    set_theme_and_icons
-    enable_sddm
-    echo -e "${GREEN}Installation abgeschlossen!${NC}"
+# Alle verbleibenden Schritte ausführen
+run_remaining_steps() {
+    [[ ! " ${done_steps[@]} " =~ " update_system " ]] && update_system
+    [[ ! " ${done_steps[@]} " =~ " install_packages " ]] && install_packages
+    [[ ! " ${done_steps[@]} " =~ " install_zsh " ]] && install_zsh
+    [[ ! " ${done_steps[@]} " =~ " apply_config " ]] && apply_config
+    [[ ! " ${done_steps[@]} " =~ " set_theme_and_icons " ]] && set_theme_and_icons
+    [[ ! " ${done_steps[@]} " =~ " enable_sddm " ]] && enable_sddm
+    dialog --msgbox "${PURPLE}Alle Schritte abgeschlossen!" 6 50
+}
+
+cleanup() {
+    rm -f "$DIALOGRC_FILE"
 }
 
 # Menülogik
+check_dialog_installed
 while true; do
     show_menu
-    read -r -p "Bitte eine Option wählen: " choice
-    case $choice in
-        1) update_system ;;
-        2) install_packages ;;
-        3) install_zsh ;;
-        4) apply_config ;;
-        5) set_theme_and_icons ;;
-        6) enable_sddm ;;
-        7) run_full_install ;;
-        8) echo -e "${GREEN}Installation beendet.${NC}"; exit 0 ;;
-        *) echo -e "${YELLOW}Ungültige Auswahl. Bitte erneut versuchen.${NC}" ;;
-    esac
 done
