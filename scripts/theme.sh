@@ -7,5 +7,5 @@
 #)
 # gsettings set org.gnome.desktop.interface gtk-theme 'Graphite-teal-Dark-nord'
 
-cp -fr ./systemconfig/systemconfig/theme/Skeuos-Violet-Dark ~/.themes/Skeuos-Violet-Dark/
+cp -fr ./scripts/theme/Skeuos-Violet-Dark ~/.themes/Skeuos-Violet-Dark/
 gsettings set org.gnome.desktop.interface gtk-theme 'Skeuos-Violet-Dark'

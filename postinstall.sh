@@ -31,7 +31,7 @@ read -r -p "Answer: " response
 case "$response" in
     ""|[yY][eE][sS]|[yY])
         echo -e "${YELLOW}Installing and configuring zsh...${NC}"
-        bash ./systemconfig/zshinstall.sh
+        bash ./scripts/zshinstall.sh
         ;;
     *)
         echo -e "${YELLOW}Skipping zsh installation.${NC}"

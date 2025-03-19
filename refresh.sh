@@ -54,7 +54,7 @@ update_system() {
 # Konfigurationsdateien anwenden
 apply_config() {
     echo -e "${YELLOW}Übertrage Konfigurationsdateien...${NC}"
-    if bash ./systemconfig/config.sh; then
+    if bash ./scripts/config.sh; then
         mark_done apply_config
     else
         echo -e "${RED}Fehler beim Anwenden der Konfiguration!${NC}"
@@ -64,7 +64,7 @@ apply_config() {
 # Theme und Icons setzen
 set_theme_and_icons() {
     echo -e "${YELLOW}Setze Theme und Icons...${NC}"
-    if bash ./systemconfig/theme.sh && bash ./systemconfig/icons.sh; then
+    if bash ./scripts/theme.sh && bash ./scripts/icons.sh; then
         mark_done set_theme_and_icons
     else
         echo -e "${RED}Fehler beim Setzen von Theme und Icons!${NC}"

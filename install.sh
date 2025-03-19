@@ -86,7 +86,7 @@ update_system() {
 # Essenzielle Pakete installieren
 install_packages() {
     dialog --msgbox "Installiere essenzielle Pakete..." 6 50
-    bash ./systemconfig/packages.sh
+    bash ./scripts/packages.sh
     mark_done "install_packages"
 }
 
@@ -94,7 +94,7 @@ install_packages() {
 install_zsh() {
     if ask_user "Möchtest du Zsh installieren und konfigurieren?"; then
         dialog --msgbox "Installiere und konfiguriere Zsh..." 6 50
-        bash ./systemconfig/zshinstall.sh
+        bash ./scripts/zshinstall.sh
         mark_done "install_zsh"
     else
         dialog --msgbox "Überspringe Zsh-Installation." 6 50
@@ -104,15 +104,15 @@ install_zsh() {
 # Konfigurationsdateien kopieren
 apply_config() {
     dialog --msgbox "Übertrage Konfigurationsdateien..." 6 50
-    bash ./systemconfig/config.sh
+    bash ./scripts/config.sh
     mark_done "apply_config"
 }
 
 # Theme und Icons setzen
 set_theme_and_icons() {
     dialog --msgbox "Setze Theme und Icons..." 6 50
-    bash ./systemconfig/theme.sh
-    bash ./systemconfig/icons.sh
+    bash ./scripts/theme.sh
+    bash ./scripts/icons.sh
     mark_done "set_theme_and_icons"
 }
 
