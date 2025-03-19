@@ -46,11 +46,17 @@
             "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
             "tooltip-format-ethernet": "{ifname} 🖧 ",
             "on-click": "iwgtk"
-        },
+        },        
         "custom/sound": {
-            "format": "",
-            "on-click": "pavucontrol",
-            "tooltip": false
+            "interval": 1,
+            "exec": "pamixer --get-volume",
+            "format": "{}%",
+            "format-muted": "󰝟 Muted",
+            "format-icons": ["󰕿", "󰖀", "󰕾", "󰖁"],
+            "on-click": "sh -c 'pavucontrol'",
+            "on-scroll-up": "pamixer -i 5",   // Lautstärke erhöhen
+            "on-scroll-down": "pamixer -d 5", // Lautstärke verringern
+            "on-click-right": "pamixer -t"    // Rechtsklick zum Muten
         },
         "bluetooth": {
             "format-on": "󰂯",
@@ -62,7 +68,7 @@
             "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
             "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
             "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-            "on-click-right": "blueman-manager",
+            "on-click-right": "blueman-manager"
         }, 
         "battery": {
             "interval":1,
@@ -82,7 +88,7 @@
             "󰂀",
             "󰂂",
             "󰁹"
-            ],
+            ]
         },
         "custom/pacman": {
             "format": "󰅢  {}",
@@ -91,7 +97,7 @@
             "exec-if": "exit 0",
             "on-click": "kitty sh -c 'yay; sudo pacman -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
             "signal": 8,
-            "tooltip": false,
+            "tooltip": false
         },
         "custom/expand": {
             "format": "",
@@ -108,7 +114,7 @@
                 "transition-to-left": true,
                 "click-to-reveal": true
             },
-            "modules": ["custom/expand", "custom/colorpicker","cpu","memory","temperature","custom/endpoint"],
+            "modules": ["custom/expand", "custom/colorpicker","cpu","memory","temperature","custom/endpoint"]
         },
         "custom/colorpicker": {
             "format": "{}",
@@ -127,10 +133,10 @@
         },
         "temperature": {
             "critical-threshold": 80,
-            "format": "",
+            "format": ""
         },
         "tray": {
             "icon-size": 14,
             "spacing": 10
-        },
+        }
 } 
