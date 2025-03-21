@@ -2,13 +2,13 @@
 <a id="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
-[![MIT License][license-shield]][license-url]
+[![Unlicense License][license-shield]][license-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/arkaizn/Dotfiles">
-    <img src="arch.svg" alt="Logo" width="80" height="80">
+    <img src="images\archlinux-logo.svg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Arch Linux Setup Scripts</h3>
@@ -120,12 +120,12 @@ Here are some planned features and improvements for the project:
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+This project is licensed under the Unlicense. See `LICENSE` for more details.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[license-shield]: https://img.shields.io/github/license/arkaizn/Dotfiles.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/badge/license-Unlicense-blue.svg?style=for-the-badge
 [license-url]: https://github.com/arkaizn/Dotfiles/blob/master/LICENSE
 
 ### Anpassungen:
@@ -138,4 +138,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 7. **Lizenz**: MIT-Lizenz wurde hinzugefügt.
 8. **Unnötige Abschnitte entfernt**: Beiträge, Danksagungen, Badges und Demo-Abschnitte wurden weggelassen, wie von dir gewünscht.
 
-Füge einfach deine Screenshots in den `images`-Ordner ein und ersetze die Platzhalter mit den tatsächlichen Dateinamen. Wenn du weitere Anpassungen benötigst, lass es mich wissen! 😊
