@@ -115,7 +115,7 @@ Here are some planned features and improvements for the project:
 - [x] **Basic system setup and GUI installation.**
 - [x] **Configured**
   - hyprland, waybar, hyprlock, wofi, pywal, fastfetch, swaync
-- [ ] **Add Images of th System**
+- [ ] **Add Images of the System**
 - [ ] **To configure**
   -  pavucontrol, blueman, iwgtk, waybar, swaync
 - [ ] **Configure TUI (pre-installation) and GUI (post-installation) for the scripts**.
