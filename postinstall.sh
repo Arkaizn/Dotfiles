@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# setup openrgb
-echo -e "${YELLOW}Do you want to install openrgb? (y/n)${NC}"
+# Set up OpenRGB
+echo -e "${YELLOW}Do you want to install OpenRGB? (y/n)${NC}"
     read -r -p "Answer: " response
     case "$response" in
         ""|[yY][eE][sS]|[yY])
@@ -12,8 +12,8 @@ echo -e "${YELLOW}Do you want to install openrgb? (y/n)${NC}"
             ;;
     esac
 
-# install some other apps
-echo -e "${YELLOW}Do you want to install some other apps that you probably need?(browser,...) (y/n)${NC}"
+# Install some other applications
+echo -e "${YELLOW}Do you want to install some other apps that you probably need? (browser, etc.) (y/n)${NC}"
     read -r -p "Answer: " response
     case "$response" in
         ""|[yY][eE][sS]|[yY])
@@ -24,18 +24,18 @@ echo -e "${YELLOW}Do you want to install some other apps that you probably need?
             ;;
     esac
 
-# 3. install zsh
+# Install Zsh
 echo -e "${YELLOW}When you install Zsh, it will prompt you to start using it. If you choose to do so, you can type 'exit' in Zsh to return to your previous shell, allowing the script to continue running.${NC}"
-echo -e "${YELLOW}Do you want to install zsh and configure it? (y/n)${NC}"
+echo -e "${YELLOW}Do you want to install Zsh and configure it? (y/n)${NC}"
 read -r -p "Answer: " response
 case "$response" in
     ""|[yY][eE][sS]|[yY])
-        echo -e "${YELLOW}Installing and configuring zsh...${NC}"
+        echo -e "${YELLOW}Installing and configuring Zsh...${NC}"
         bash ./scripts/zshinstall.sh
         ;;
     *)
-        echo -e "${YELLOW}Skipping zsh installation.${NC}"
+        echo -e "${YELLOW}Skipping Zsh installation.${NC}"
         ;;
 esac
 
-# install nvidia drivers for Maxwell (NV110) series and newer
+# Install NVIDIA drivers for Maxwell (NV110) series and newer

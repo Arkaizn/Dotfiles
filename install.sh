@@ -24,49 +24,48 @@
 # Set the environment variable to use the custom dialog colors
 #export DIALOGRC="$DIALOGRC_FILE"
 
-# Farbdefinitionen
+# Color definitions
 PURPLE="\033[0;35m"
 YELLOW="\033[1;33m"
 CYAN="\033[0;36m"
 NC="\033[0m" # No Color
 
-# Array zur Verfolgung abgeschlossener Schritte
+# Array to track completed steps
 done_steps=()
 
-# Überprüfen, ob 'dialog' installiert ist und es installieren, falls es fehlt
+# Check if 'dialog' is installed and install it if missing
 check_dialog_installed() {
     if ! command -v dialog &>/dev/null; then
         sudo pacman -Sy --noconfirm dialog
     fi
 }
 
-
-# Funktion zum Anzeigen des Hauptmenüs mit dialog
+# Function to display the main menu using dialog
 show_menu() {
-    MENUCHOICE=$(dialog --title "Hyprland Installationsskript" --menu "Wählen Sie eine Option:" 15 50 8 \
-        1 "System aktualisieren" \
-        2 "Essenzielle Pakete installieren" \
-        3 "Zsh installieren und konfigurieren" \
-        4 "Konfigurationsdateien anwenden" \
-        5 "Theme und Icons setzen" \
-        6 "SDDM aktivieren" \
-        7 "Alle verbleibenden Schritte ausführen" \
-        8 "Beenden" 2>&1 >/dev/tty)
+    MENUCHOICE=$(dialog --title "Hyprland Installation Script" --menu "Choose an option:" 15 50 8 \
+        1 "Update system" \
+        2 "Install essential packages" \
+        3 "Install and configure Zsh" \
+        4 "Apply configuration files" \
+        5 "Set theme and icons" \
+        6 "Enable SDDM" \
+        7 "Run all remaining steps" \
+        8 "Exit" 2>&1 >/dev/tty)
 
     case $MENUCHOICE in
-        1) [[ ! " ${done_steps[@]} " =~ " update_system " ]] && update_system || dialog --msgbox "Bereits erledigt." 6 50 ;;
-        2) [[ ! " ${done_steps[@]} " =~ " install_packages " ]] && install_packages || dialog --msgbox "Bereits erledigt." 6 50 ;;
-        3) [[ ! " ${done_steps[@]} " =~ " install_zsh " ]] && install_zsh || dialog --msgbox "Bereits erledigt." 6 50 ;;
-        4) [[ ! " ${done_steps[@]} " =~ " apply_config " ]] && apply_config || dialog --msgbox "Bereits erledigt." 6 50 ;;
-        5) [[ ! " ${done_steps[@]} " =~ " set_theme_and_icons " ]] && set_theme_and_icons || dialog --msgbox "Bereits erledigt." 6 50 ;;
-        6) [[ ! " ${done_steps[@]} " =~ " enable_sddm " ]] && enable_sddm || dialog --msgbox "Bereits erledigt." 6 50 ;;
+        1) [[ ! " ${done_steps[@]} " =~ " update_system " ]] && update_system || dialog --msgbox "Already completed." 6 50 ;;
+        2) [[ ! " ${done_steps[@]} " =~ " install_packages " ]] && install_packages || dialog --msgbox "Already completed." 6 50 ;;
+        3) [[ ! " ${done_steps[@]} " =~ " install_zsh " ]] && install_zsh || dialog --msgbox "Already completed." 6 50 ;;
+        4) [[ ! " ${done_steps[@]} " =~ " apply_config " ]] && apply_config || dialog --msgbox "Already completed." 6 50 ;;
+        5) [[ ! " ${done_steps[@]} " =~ " set_theme_and_icons " ]] && set_theme_and_icons || dialog --msgbox "Already completed." 6 50 ;;
+        6) [[ ! " ${done_steps[@]} " =~ " enable_sddm " ]] && enable_sddm || dialog --msgbox "Already completed." 6 50 ;;
         7) run_remaining_steps ;;
-        8) dialog --msgbox "Installation beendet." 6 50; exit 0 ;;
-        *) dialog --msgbox "Ungültige Auswahl. Bitte erneut versuchen." 6 50 ;;
+        8) dialog --msgbox "Installation finished." 6 50; exit 0 ;;
+        *) dialog --msgbox "Invalid selection. Please try again." 6 50 ;;
     esac
 }
 
-# Funktion zur Benutzerabfrage mit dialog
+# Function to prompt the user with a yes/no dialog
 ask_user() {
     dialog --yesno "$1" 6 50
     return $?
@@ -76,54 +75,54 @@ mark_done() {
     done_steps+=("$1")
 }
 
-# Systemupdate
+# System update
 update_system() {
-    dialog --msgbox "System wird aktualisiert..." 6 50
+    dialog --msgbox "Updating system..." 6 50
     sudo pacman -Syu --noconfirm
     mark_done "update_system"
 }
 
-# Essenzielle Pakete installieren
+# Install essential packages
 install_packages() {
-    dialog --msgbox "Installiere essenzielle Pakete..." 6 50
+    dialog --msgbox "Installing essential packages..." 6 50
     bash ./scripts/packages.sh
     mark_done "install_packages"
 }
 
-# Zsh installieren
+# Install Zsh
 install_zsh() {
-    if ask_user "Möchtest du Zsh installieren und konfigurieren?"; then
-        dialog --msgbox "Installiere und konfiguriere Zsh..." 6 50
+    if ask_user "Do you want to install and configure Zsh?"; then
+        dialog --msgbox "Installing and configuring Zsh..." 6 50
         bash ./scripts/zshinstall.sh
         mark_done "install_zsh"
     else
-        dialog --msgbox "Überspringe Zsh-Installation." 6 50
+        dialog --msgbox "Skipping Zsh installation." 6 50
     fi
 }
 
-# Konfigurationsdateien kopieren
+# Apply configuration files
 apply_config() {
-    dialog --msgbox "Übertrage Konfigurationsdateien..." 6 50
+    dialog --msgbox "Applying configuration files..." 6 50
     bash ./scripts/config.sh
     mark_done "apply_config"
 }
 
-# Theme und Icons setzen
+# Set theme and icons
 set_theme_and_icons() {
-    dialog --msgbox "Setze Theme und Icons..." 6 50
+    dialog --msgbox "Setting theme and icons..." 6 50
     bash ./scripts/theme.sh
     bash ./scripts/icons.sh
     mark_done "set_theme_and_icons"
 }
 
-# SDDM aktivieren
+# Enable SDDM
 enable_sddm() {
-    dialog --msgbox "Aktiviere SDDM..." 6 50
+    dialog --msgbox "Enabling SDDM..." 6 50
     sudo systemctl enable sddm.service
     mark_done "enable_sddm"
 }
 
-# Alle verbleibenden Schritte ausführen
+# Run all remaining steps
 run_remaining_steps() {
     [[ ! " ${done_steps[@]} " =~ " update_system " ]] && update_system
     [[ ! " ${done_steps[@]} " =~ " install_packages " ]] && install_packages
@@ -131,14 +130,14 @@ run_remaining_steps() {
     [[ ! " ${done_steps[@]} " =~ " apply_config " ]] && apply_config
     [[ ! " ${done_steps[@]} " =~ " set_theme_and_icons " ]] && set_theme_and_icons
     [[ ! " ${done_steps[@]} " =~ " enable_sddm " ]] && enable_sddm
-    dialog --msgbox "${PURPLE}Alle Schritte abgeschlossen!" 6 50
+    dialog --msgbox "${PURPLE}All steps completed!" 6 50
 }
 
 cleanup() {
     rm -f "$DIALOGRC_FILE"
 }
 
-# Menülogik
+# Menu logic
 check_dialog_installed
 while true; do
     show_menu
