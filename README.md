@@ -119,6 +119,7 @@ Here are some planned features and improvements for the project:
 - [ ] **To configure**
   -  pavucontrol, blueman, iwgtk, waybar, swaync
 - [ ] **Add Images of the System**
+- [ ] **Replace Theme and Icon Folders with an intallation**
 - [ ] **Configure TUI (pre-installation) and GUI (post-installation) for the scripts**.
 
 ### Low Priority
