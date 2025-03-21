@@ -136,31 +136,31 @@ Here are some planned features and improvements for the project:
 <!-- Project Structure -->
 ## Project Structure
 
-```
-    dotfiles/
-    ├── .config/
-    │   └── hypr/
-    │       ├── hyprland.conf
-    │       └── ...
-    ├── additions/
-    │   ├── apps.sh
-    │   ├── openrgb/
-    │   │   └── openrgb.sh
-    │   └── nvidia.sh
-    ├── images/
-    │   └── ...
-    ├── scripts/
-    │   ├── config.sh
-    │   ├── icons.sh
-    │   ├── packages.sh
-    │   ├── theme.sh
-    │   └── zshinstall.sh
-    ├── LICENSE
-    ├── README.md
-    ├── install.sh
-    ├── postinstall.sh
-    └── refresh.sh
-```
+
+dotfiles/
+├── .config/
+│   └── hypr/
+│       ├── hyprland.conf
+│       └── ...
+├── additions/
+│   ├── apps.sh
+│   ├── openrgb/
+│   │   └── openrgb.sh
+│   └── nvidia.sh
+├── images/
+│   └── ...
+├── scripts/
+│   ├── config.sh
+│   ├── icons.sh
+│   ├── packages.sh
+│   ├── theme.sh
+│   └── zshinstall.sh
+├── LICENSE
+├── README.md
+├── install.sh
+├── postinstall.sh
+└── refresh.sh
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
