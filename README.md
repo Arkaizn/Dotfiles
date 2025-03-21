@@ -1,68 +1,141 @@
-# Arch Linux Installation Script
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<a id="readme-top"></a>
 
-## Overview
+<!-- PROJECT SHIELDS -->
+[![MIT License][license-shield]][license-url]
 
-This repository contains a set of scripts to automate the installation and configuration of an Arch Linux system with Hyprland. The installation process includes system updates, essential package installations, configuration setup, and theming.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/arkaizn/Dotfiles">
+    <img src="arch.svg" alt="Logo" width="80" height="80">
+  </a>
 
-## Features
+  <h3 align="center">Arch Linux Setup Scripts</h3>
 
-- Updates the system
-- Installs essential packages
-- Installs and configures Zsh
-- Applies configuration files
-- Sets up themes and icons
-- Enables SDDM (Simple Desktop Display Manager)
-- Runs all steps in sequence if desired
+  <p align="center">
+    Automate your Arch Linux installation with a fully configured GUI and system settings.
+    <br />
+    <a href="https://github.com/arkaizn/Dotfiles"><strong>Explore the repository »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/arkaizn/Dotfiles/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    ·
+    <a href="https://github.com/arkaizn/Dotfiles/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+  </p>
+</div>
 
-## Prerequisites
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+</details>
 
-Ensure you have the following before running the script:
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-- A working Arch Linux installation
-- `sudo` privileges
-- Internet connection
+This project provides a set of scripts to automate the installation and configuration of Arch Linux. Starting from a standard Arch installation, these scripts set up a fully functional GUI and all necessary configurations to use the system as a daily driver.
 
-## Installation and Usage
+Here's why this project exists:
+- **Save time**: No need to manually configure your system after installing Arch Linux.
+- **Consistency**: Ensures a consistent setup across multiple installations.
+- **Customization**: Easily tweak the scripts to fit your specific needs.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Built With
+
+This project is primarily built using the following technologies:
+
+- **Shell scripting**: For automating system setup and configurations.
+- **CSS**: For styling the GUI components.
+- **JSONC**: For configuration files.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get started with this project, follow these simple steps.
+
+### Prerequisites
+
+- A fresh installation of Arch Linux.
+- Basic knowledge of Linux commands.
+
+### Installation
 
 1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/yourusername/Dotfiles.git
+   ```sh
+   git clone https://github.com/arkaizn/Dotfiles
    cd Dotfiles
    ```
 
-2. Run the script:
-
-   ```bash
+2. Run the installation script:
+   ```sh
    ./install.sh
    ```
 
-## Script Functionality
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-When executed, the script provides a menu with the following options:
+<!-- USAGE -->
+## Usage
 
-1. **System aktualisieren** - Updates the system using `pacman -Syu`.
-2. **Essenzielle Pakete installieren** - Installs essential packages listed in `scripts/packages.sh`.
-3. **Zsh installieren und konfigurieren** - Installs and configures Zsh using `scripts/zshinstall.sh`.
-4. **Konfigurationsdateien anwenden** - Applies custom configurations from `scripts/config.sh`.
-5. **Theme und Icons setzen** - Applies a predefined theme and icons using `scripts/theme.sh` and `scripts/icons.sh`.
-6. **SDDM aktivieren** - Enables the SDDM display manager.
-7. **Alle verbleibenden Schritte ausführen** - Runs all remaining steps in sequence.
-8. **Beenden** - Exits the script.
+After running the installation script, your system will be fully configured with a GUI and all necessary settings. Below are some screenshots of the setup:
 
-## Customization
+<!-- Add your screenshots here -->
+![Screenshot 1](images/screenshot1.png)
+![Screenshot 2](images/screenshot2.png)
 
-You can modify the individual scripts inside the `scripts/` folder to adjust package lists, configurations, or themes according to your preferences.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Cleanup
+<!-- ROADMAP -->
+## Roadmap
 
-If necessary, temporary files such as the `.dialogrc` file are cleaned up upon script exit.
+Here are some planned features and improvements for the project:
 
-## Troubleshooting
+- [x] Basic system setup and GUI installation.
+- [ ] **Configure Hyprland plugins**.
+- [ ] **Create TUI (pre-installation) and GUI (post-installation) for the scripts**.
+- [ ] **Create [nvidia.sh] script**:
+  - Automate setup for NVIDIA drivers and configurations.
+- [ ] **Clean up scripts (structure)**:
+  - Refactor and organize script files for better structure and readability.
+- [ ] **Text from image**:
+  - Implement OCR functionality to extract text from images.
 
-If you encounter issues, try the following:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- Ensure `dialog` is installed (`sudo pacman -Sy dialog`).
-- Run the script with `bash -x ./install.sh` to debug.
-- Check log outputs for errors.
+<!-- LICENSE -->
+## License
 
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[license-shield]: https://img.shields.io/github/license/arkaizn/Dotfiles.svg?style=for-the-badge
+[license-url]: https://github.com/arkaizn/Dotfiles/blob/master/LICENSE
+
+### Anpassungen:
+1. **Projektname und Beschreibung**: Ich habe den Projektnamen und die Beschreibung auf dein Arch Linux-Setup-Projekt ausgerichtet.
+2. **Logo**: Platzhalter für eine `arch.svg`-Datei hinzugefügt.
+3. **Technologien**: Shell, CSS und JSONC wurden als verwendete Technologien aufgeführt.
+4. **Installationsanleitung**: Die Schritte zum Klonen und Ausführen des Installationsskripts wurden hinzugefügt.
+5. **Verwendung**: Platzhalter für Screenshots deines Setups eingefügt.
+6. **Roadmap**: Deine geplanten Features und Verbesserungen wurden in die Roadmap aufgenommen.
+7. **Lizenz**: MIT-Lizenz wurde hinzugefügt.
+8. **Unnötige Abschnitte entfernt**: Beiträge, Danksagungen, Badges und Demo-Abschnitte wurden weggelassen, wie von dir gewünscht.
+
+Füge einfach deine Screenshots in den `images`-Ordner ein und ersetze die Platzhalter mit den tatsächlichen Dateinamen. Wenn du weitere Anpassungen benötigst, lass es mich wissen! 😊
