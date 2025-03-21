@@ -32,10 +32,16 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#why-this-project">Why This Project</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#getting-started">Getting Started</a>
+     <ul>
+        <li><a href="#high-priority">High Priority</a></li>
+        <li><a href="#low-priority">Low Priority</a></li>
+     </ul>
+    </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
@@ -43,24 +49,24 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About The Project  
 
-This project provides a set of scripts to automate the installation and configuration of Arch Linux. Starting from a standard Arch installation, these scripts set up a fully functional GUI and all necessary configurations to use the system as a daily driver.
+This project provides a collection of scripts to automate the installation and configuration of Arch Linux. It transforms a base Arch installation into a fully functional system with a graphical user interface (GUI) and essential configurations, making it ready for daily use.  
 
-Here's why this project exists:
-- **Save time**: No need to manually configure your system after installing Arch Linux.
-- **Consistency**: Ensures a consistent setup across multiple installations.
-- **Customization**: Easily tweak the scripts to fit your specific needs.
+### Why This Project?  
+- **Time-Saving** – Automates the tedious post-installation setup.  
+- **Consistency** – Ensures a uniform configuration across multiple installations.  
+- **Customization** – Easily adjustable to match your personal preferences.  
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Back to top</a>)</p>  
 
-### Built With
+### Built With  
 
-This project is primarily built using the following technologies:
+This project is powered by the following technologies:  
 
-- **Shell scripting**: For automating system setup and configurations.
-- **CSS**: For styling the GUI components.
-- **JSONC**: For configuration files.
+* [![Shell Script][ShellScript]][ShellScript-url]  
+* [![CSS][CSS3]][CSS3-url]  
+* [![JSONC][JSONC]][JSONC-url]  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -105,22 +111,31 @@ After running the installation script, your system will be fully configured with
 
 Here are some planned features and improvements for the project:
 
-- [x] Basic system setup and GUI installation.
+### high priority
+- [x] **Basic system setup and GUI installation.**
+- [x] **Configured**
+  - hyprland, waybar, hyprlock, wofi, pywal, fastfetch, swaync
+- [ ] **Add Images of th System**
+- [ ] **To configure**
+  -  pavucontrol, blueman, iwgtk, waybar, swaync
+- [ ] **Configure TUI (pre-installation) and GUI (post-installation) for the scripts**.
+
+### Low priority
 - [ ] **Configure Hyprland plugins**.
-- [ ] **Create TUI (pre-installation) and GUI (post-installation) for the scripts**.
-- [ ] **Create [nvidia.sh] script**:
-  - Automate setup for NVIDIA drivers and configurations.
+- [ ] **Create nvidia.sh script**:
+  - Automate setup for NVIDIA drivers and configurations (Grub, etc.).
 - [ ] **Clean up scripts (structure)**:
   - Refactor and organize script files for better structure and readability.
 - [ ] **Text from image**:
   - Implement OCR functionality to extract text from images.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## License
 
-This project is licensed under the Unlicense. See `LICENSE` for more details.
+This project is licensed under the Unlicense. See [LICENSE](https://github.com/arkaizn/Dotfiles/blob/master/LICENSE) for more details.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,13 +143,11 @@ This project is licensed under the Unlicense. See `LICENSE` for more details.
 [license-shield]: https://img.shields.io/badge/license-Unlicense-blue.svg?style=for-the-badge
 [license-url]: https://github.com/arkaizn/Dotfiles/blob/master/LICENSE
 
-### Anpassungen:
-1. **Projektname und Beschreibung**: Ich habe den Projektnamen und die Beschreibung auf dein Arch Linux-Setup-Projekt ausgerichtet.
-2. **Logo**: Platzhalter für eine `arch.svg`-Datei hinzugefügt.
-3. **Technologien**: Shell, CSS und JSONC wurden als verwendete Technologien aufgeführt.
-4. **Installationsanleitung**: Die Schritte zum Klonen und Ausführen des Installationsskripts wurden hinzugefügt.
-5. **Verwendung**: Platzhalter für Screenshots deines Setups eingefügt.
-6. **Roadmap**: Deine geplanten Features und Verbesserungen wurden in die Roadmap aufgenommen.
-7. **Lizenz**: MIT-Lizenz wurde hinzugefügt.
-8. **Unnötige Abschnitte entfernt**: Beiträge, Danksagungen, Badges und Demo-Abschnitte wurden weggelassen, wie von dir gewünscht.
+[ShellScript]: https://img.shields.io/badge/Shell_Script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white  
+[ShellScript-url]: https://www.gnu.org/software/bash/  
 
+[CSS3]: https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white  
+[CSS3-url]: https://developer.mozilla.org/en-US/docs/Web/CSS  
+
+[JSONC]: https://img.shields.io/badge/JSONC-%23000000.svg?style=for-the-badge&logo=json&logoColor=white  
+[JSONC-url]: https://code.visualstudio.com/docs/languages/json  
