@@ -44,6 +44,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#project-structure">Project Structure</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
@@ -100,7 +101,7 @@ To get started with this project, follow these simple steps.
 
 After running the installation script, your system will be fully configured with a GUI and all necessary settings. Below are some screenshots of the setup:
 
-<!-- Add your screenshots here -->
+<!-- Screenshots  -->
 ![Screenshot 1](images/screenshot1.png)
 ![Screenshot 2](images/screenshot2.png)
 
@@ -111,16 +112,16 @@ After running the installation script, your system will be fully configured with
 
 Here are some planned features and improvements for the project:
 
-### high priority
+### High Priority
 - [x] **Basic system setup and GUI installation.**
 - [x] **Configured**
   - hyprland, waybar, hyprlock, wofi, pywal, fastfetch, swaync
-- [ ] **Add Images of the System**
 - [ ] **To configure**
   -  pavucontrol, blueman, iwgtk, waybar, swaync
+- [ ] **Add Images of the System**
 - [ ] **Configure TUI (pre-installation) and GUI (post-installation) for the scripts**.
 
-### Low priority
+### Low Priority
 - [ ] **Configure Hyprland plugins**.
 - [ ] **Create nvidia.sh script**:
   - Automate setup for NVIDIA drivers and configurations (Grub, etc.).
@@ -130,6 +131,36 @@ Here are some planned features and improvements for the project:
   - Implement OCR functionality to extract text from images.
 
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Project Structure -->
+## Project Structure
+
+```
+    dotfiles/
+    ├── .config/
+    │   └── hypr/
+    │       ├── hyprland.conf
+    │       └── ...
+    ├── additions/
+    │   ├── apps.sh
+    │   ├── openrgb/
+    │   │   └── openrgb.sh
+    │   └── nvidia.sh
+    ├── images/
+    │   └── ...
+    ├── scripts/
+    │   ├── config.sh
+    │   ├── icons.sh
+    │   ├── packages.sh
+    │   ├── theme.sh
+    │   └── zshinstall.sh
+    ├── LICENSE
+    ├── README.md
+    ├── install.sh
+    ├── postinstall.sh
+    └── refresh.sh
+```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
