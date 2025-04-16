@@ -184,3 +184,4 @@ This project is licensed under the Unlicense. See [LICENSE](https://github.com/a
 
 [JSONC]: https://img.shields.io/badge/JSONC-%23000000.svg?style=for-the-badge&logo=json&logoColor=white  
 [JSONC-url]: https://code.visualstudio.com/docs/languages/json  
+
