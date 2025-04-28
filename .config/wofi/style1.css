@@ -1,89 +1,144 @@
-@import url('/home/eli/.cache/wal/colors-waybar.css');
-@define-color mauve  @color9;
-@define-color red  @color9;
-@define-color lavender  @color7;
-@define-color text  @color7;
+@import url('/home/arkaizn/.cache/wal/colors-waybar.css');
+@define-color mauve @color9;
+@define-color red @color9;
+@define-color lavender @color7;
+@define-color text @color7;
+
 * {
-    all:unset;
-    font-family: 'CodeNewRoman Nerd Font Mono', monospace;
-    font-size: 18px;
-    outline: none;
-    border: none;
-    text-shadow:none;
-    background-color:transparent;
+  all: unset;
+  font-family: 'CodeNewRoman Nerd Font Mono', monospace;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  text-shadow: none;
+  background-color: transparent;
 }
 
 window {
-    all:unset;
-    padding: 20px;
-    border-radius: 0px;
-    background-color: alpha(@background,.5);
+  all: unset;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: alpha(@background, 0.5);
 }
-#inner-box {
-    margin: 2px;
-    padding: 5px;
-    border: none;
 
+#outer-box {
+  border: none;
 }
-#outer-box {    
-    border: none;
-}
+
 #scroll {
-    margin: 0px;
-    padding: 30px;
-    border: none;
+  margin: 0px;
+  padding: 20px;
+  border: none;
 }
+
 #input {
-    all:unset;
-    margin-left:20px;
-    margin-right:20px;
-    margin-top:20px;
-    padding: 20px;
-    border: none;
-    outline: none;
-    color: @text;
-    box-shadow: 1px 1px 5px rgba(0,0,0, .5);
-    border-radius:10;
-    background-color: alpha(@background,.2);
+  all: unset;
+  margin: 20px;
+  padding: 20px;
+  border: none;
+  outline: none;
+  color: @text;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+  border-radius: 10px;
+  background-color: alpha(@background, 0.2);
 }
+
 #input image {
-    border: none;
-    color: @red;
-    padding-right:10px;
+  border: none;
+  color: @red;
+  padding-right: 10px;
 }
+
 #input * {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 #input:focus {
-    outline: none;
-    border: none;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
 
-    border-radius:10;
+#inner-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-gap: 15px;
 }
-#text {
-    margin: 5px;
-    border: none;
-    color: @text;
-    outline: none;
-}
+
 #entry {
-    all:unset;
-    padding-left:35px;
-    padding-top: 35px;
-
+  margin: 0;
+  padding: 15px;
+  border-radius: 12px;
+  background-color: transparent;
+  
+  /* Fixed dimensions for consistent layout */
+  height: 180px;
+  width: 220px;
+  
+  /* Better centering with flexbox */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
 }
-#entry arrow {
-    border: none;
-    color: @lavender;
 
+/* Hover effect - soft highlight */
+#entry:hover {
+  background-color: alpha(@lavender, 0.15);
+  transform: scale(1.02);
 }
+
+#entry image {
+  /* Fixed size for consistency */
+  width: 180px;
+  height: 120px;
+  
+  /* Perfect centering */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
 #entry:selected {
+  background-color: alpha(@lavender, 0.35);
+  border-radius: 12px;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px alpha(@lavender, 0.4);
 }
-#entry:selected #text {
-    color: @mauve;
-}
+
 #entry:drop(active) {
-    background-color: @lavender !important;
+  background-color: @lavender;
+}
+
+#entry arrow {
+  border: none;
+  color: @lavender;
+}
+
+#text {
+  width: 100%;
+  margin-top: 10px;
+  color: @text;
+  text-align: center;
+  font-size: 16px;
+}
+
+#entry:selected #text {
+  color: @mauve;
+  font-weight: bold;
+}
+
+/* Ensure one-click selection works properly */
+#entry:active {
+  background-color: alpha(@mauve, 0.5);
+  transform: scale(0.98);
 }
