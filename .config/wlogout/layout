@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "hyprlock",
+    "action" : "~/.config/hypr/hyprlock/hyprlock.sh",
     "keybind" : "l"
 }
 {
@@ -10,12 +10,12 @@
 }
 {
     "label" : "logout",
-    "action" : "pkill Hyprland || pkill sway || pkill niri || loginctl terminate-user $USER",
+    "action" : "hyprctl dispatch exit",
     "keybind" : "e"
 }
 {
     "label" : "shutdown",
-    "action" : "systemctl poweroff || loginctl poweroff",
+    "action" : "poweroff",
     "keybind" : "s"
 }
 {
