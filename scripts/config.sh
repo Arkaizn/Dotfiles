@@ -1,26 +1,28 @@
 #!/bin/bash
 
 # copy hypr config
-cp -r ./.config/hypr ~/.config
+cp -fr ./.config/hypr ~/.config
 
 # copy alacritty config
-cp -r ./.config/alacritty ~/.config
+cp -fr ./.config/alacritty ~/.config
 
 # copy waybar config
-cp -r ./.config/waybar ~/.config
+cp -fr ./.config/waybar ~/.config
 
 # copy fastfetch config
-cp -r ./.config/fastfetch ~/.config
+cp -fr ./.config/fastfetch ~/.config
 
 # copy swaync config
-cp -r ./.config/swaync ~/.config
+cp -fr ./.config/swaync ~/.config
 
 # copy wlogout config
-cp -r ./.config/wlogout ~/.config
+cp -fr ./.config/wlogout ~/.config
 
 # copy Wofi config
-cp -r ./.config/wofi ~/.config
+cp -fr ./.config/wofi ~/.config
 
+# copy kitty config
+cp -fr ./.config/kitty ~/.config
 
-# copy and run services
-bash ./services.sh
+# copy Pywal config
+cp -fr ./.config/wal ~/.config
