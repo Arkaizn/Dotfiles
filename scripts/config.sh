@@ -20,3 +20,7 @@ cp -r ./.config/wlogout ~/.config
 
 # copy Wofi config
 cp -r ./.config/wofi ~/.config
+
+
+# copy and run services
+bash ./services.sh

@@ -1,0 +1,5 @@
+[Unit]
+Description=Regenerate Pywal + Hyprlock Wallpaper
+
+[Service]
+ExecStart=%h/.config/hypr/hyprlock/lockscreen.sh

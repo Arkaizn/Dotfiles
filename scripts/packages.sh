@@ -21,7 +21,7 @@ essential_packages=(
     waybar
     wlogout
     swaync
-    pywal
+    pywal-git
     swww
     zen-browser-bin
     nerd-fonts
