@@ -20,7 +20,7 @@ main() {
     selected_wallpaper=$(echo "$choice" | sed 's/^img://')
 
     # Set the wallpaper
-    swww img "$selected_wallpaper" --transition-type any --transition-fps 60 --transition-duration .5
+    swww img "$selected_wallpaper" --transition-type wipe --transition-angle 210 --transition-fps 60 --transition-duration .5 
     
     # Generate colors with pywal
     wal -i "$selected_wallpaper"
