@@ -33,6 +33,7 @@ essential_packages=(
     meson
     cpio
     pkg-config
+    iwd
 )
 
 essential_vm_packages=(
