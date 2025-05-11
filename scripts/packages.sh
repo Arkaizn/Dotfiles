@@ -33,6 +33,8 @@ essential_packages=(
     meson
     cpio
     pkg-config
+    openssh
+    iwgtk
 )
 
 essential_vm_packages=(
