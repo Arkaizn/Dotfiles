@@ -10,6 +10,7 @@ aur_packages=(
     "vmware-workstation"
     "vscodium"
     "firefox"
+    "lutris"
 )
 pacman_packages=(
     "wine"
