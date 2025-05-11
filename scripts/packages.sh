@@ -10,7 +10,7 @@ essential_packages=(
     wget
     fastfetch
     hyprland
-    alacritty
+    kitty
     hyprlock
     hyprcursor
     xdg-desktop-portal-hyprland
@@ -21,10 +21,16 @@ essential_packages=(
     waybar
     wlogout
     swaync
+    cliphist
     pywal-git
+    python-pywalfox
     swww
     zen-browser-bin
     nerd-fonts
+    cmake
+    meson
+    cpio
+    pkg-config
 )
 
 essential_vm_packages=(
