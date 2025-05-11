@@ -19,7 +19,7 @@ essential_packages=(
     ntfs-3g
     p7zip
     wofi
-    nautilus
+    thunar
     waybar
     wlogout
     swaync
