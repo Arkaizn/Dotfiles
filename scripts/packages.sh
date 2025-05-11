@@ -13,7 +13,9 @@ essential_packages=(
     kitty
     hyprlock
     hyprcursor
+    hyprshot
     xdg-desktop-portal-hyprland
+    pacman-contrib
     ntfs-3g
     p7zip
     wofi

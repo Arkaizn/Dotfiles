@@ -4,32 +4,18 @@
 aur_packages=(
     "ani-cli"
     "ferdium"
-    "hyprshot"
     "iwgtk"
     "nordvpn-bin"
-    "pyprland"
     "rustdesk"
     "vesktop-bin"
     "vmware-workstation"
-    "vscodium-bin"
-    "wlogout"
-    "zen-browser-avx2-bin"
-    "pywal-git"  
+    "vscodium"
+    "firefox"
 )
 pacman_packages=(
     "wine"
     "steam"
     "thunderbird"
-    "pacman-contrib"
-    "gnome-terminal"
-    "swaylock"
-    "swaync"
-)
-flatpaks=(
-    "com.github.tchx84.Flatseal"
-    "org.gnome.Boxes"
-    "sh.cider.Cider"
-    "ca.desrt.dconf-editor"
 )
 
 # Check if yay is installed
@@ -65,20 +51,6 @@ for pkg in "${pacman_packages[@]}"; do
         sudo pacman -S --needed "$pkg" --noconfirm
     else
         echo "$pkg is already installed. Skipping installation."
-    fi
-done
-
-# install flatpak manager and add flathub
-sudo pacman -S flatpak --noconfirm
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-
-# Iterate over the list and install if not already installed
-for app in "${flatpaks[@]}"; do
-    if ! flatpak list | grep -q "$app"; then
-        flatpak install -y flathub "$app" -y
-    else
-        echo "$app is already installed. Skipping installation."
     fi
 done
 
