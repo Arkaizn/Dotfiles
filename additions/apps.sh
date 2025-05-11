@@ -11,6 +11,7 @@ aur_packages=(
     "vscodium"
     "firefox"
     "lutris"
+    "lazydocker"
 )
 pacman_packages=(
     "wine"
