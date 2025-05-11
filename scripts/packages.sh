@@ -36,6 +36,7 @@ essential_packages=(
     openssh
     iwgtk
     iwd
+    pavucontrol
 )
 
 essential_vm_packages=(
