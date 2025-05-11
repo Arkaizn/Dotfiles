@@ -4,7 +4,6 @@
 aur_packages=(
     "ani-cli"
     "ferdium"
-    "iwgtk"
     "nordvpn-bin"
     "rustdesk"
     "vesktop-bin"
