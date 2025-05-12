@@ -37,6 +37,7 @@ essential_packages=(
     iwgtk
     iwd
     pavucontrol
+    blueman
 )
 
 essential_vm_packages=(
