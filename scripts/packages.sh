@@ -38,6 +38,7 @@ essential_packages=(
     iwd
     pavucontrol
     blueman
+    wayvnc
 )
 
 essential_vm_packages=(

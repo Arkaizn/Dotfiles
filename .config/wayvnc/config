@@ -2,4 +2,3 @@ address=0.0.0.0
 enable_auth=true
 username=user
 password=password
-render-cursor=true
