@@ -23,3 +23,6 @@ cp -rf ~/.config/swaync ~/git/Dotfiles/.config/
 
 # copy fastfetch config to dotfiles
 cp -rf ~/.config/fastfetch ~/git/Dotfiles/.config/
+
+# copy wayvnc config to dotfiles
+cp -rf ~/.config/wayvnc ~/git/Dotfiles/.config/
