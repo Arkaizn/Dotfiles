@@ -1,22 +1,21 @@
 #!/bin/bash
 
 # packages list
-aur_packages=(
-    "ani-cli"
-    "ferdium"
-    "nordvpn-bin"
-    "rustdesk"
-    "vesktop-bin"
-    "vmware-workstation"
-    "vscodium"
-    "firefox"
-    "lutris"
-    "lazydocker"
-)
-pacman_packages=(
-    "wine"
-    "steam"
-    "thunderbird"
+packages=(
+    wine
+    steam
+    thunderbird
+    ani-cli
+    ferdium
+    nordvpn-bin
+    rustdesk
+    vesktop-bin
+    vmware-workstation
+    vscodium
+    firefox
+    lutris
+    lazydocker
+    greetd
 )
 
 # Check if yay is installed
@@ -37,23 +36,35 @@ else
     rm -rf yay
 fi
 
-# Iterate over the AUR packages and install if not already installed
-for pkg in "${aur_packages[@]}"; do
-    if ! yay -Q "$pkg" &> /dev/null; then
-        yay -S --needed "$pkg" --noconfirm --sudoloop --noanswerclean --noansweredit
-    else
-        echo "$pkg is already installed. Skipping installation."
-    fi
+# ------------------------------------------------------------------install packages
+# Show packages that will be installed
+echo -e "${YELLOW}The following packages will be installed:${NC}"
+for package in "${packages[@]}"; do
+    echo -e "${GREEN}- $package${NC}"
 done
 
-# Iterate over the Pacman packages and install if not already installed
-for pkg in "${pacman_packages[@]}"; do
-    if ! pacman -Q "$pkg" &> /dev/null; then
-        sudo pacman -S --needed "$pkg" --noconfirm
-    else
-        echo "$pkg is already installed. Skipping installation."
-    fi
-done
+# Confirm package installation
+echo -e "${YELLOW}Proceed with the installation? (y/n)${NC}"
+read -r -p "Answer: " proceed
+case "$proceed" in
+    ""|[yY][eE][sS]|[yY])
+        echo -e "${YELLOW}Installing essential packages...${NC}"
+        for package in "${packages[@]}"; do
+            echo -e "${YELLOW}Installing $package...${NC}"
+            if yay -S --noconfirm --noanswerclean --noansweredit "$package"; then
+                echo -e "${GREEN}$package installed successfully.${NC}"
+            else
+                echo -e "${RED}Failed to install $package. Skipping...${NC}"
+                echo -e "${RED}Press a button to proceed.${NC}"
+                read
+
+            fi
+        done
+        ;;
+    *)
+        echo -e "${YELLOW}Installation cancelled. Skipping...${NC}"
+        ;;
+esac
 
 # setting vesktop theme
 (

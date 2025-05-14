@@ -51,3 +51,21 @@ case "$response" in
         echo -e "${YELLOW}Skipping Nvidia Driver installation.${NC}"
         ;;
 esac
+
+# add greeter with autologin and hyprlock
+
+sudo systemctl enable greetd.service
+sudo systemctl disable getty@tty1.service 
+
+sudo tee /etc/greetd/config.toml > /dev/null <<EOF
+[terminal]
+vt = 1
+
+[initial_session]
+command = "agreety --cmd Hyprland"
+user = "greeter"
+
+[default_session]
+command = "Hyprland"
+user = "arkaizn"
+EOF
