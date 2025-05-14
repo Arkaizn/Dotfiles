@@ -54,10 +54,15 @@ esac
 
 # add greeter with autologin and hyprlock
 
-sudo systemctl enable greetd.service
-sudo systemctl disable getty@tty1.service 
+echo -e "${YELLOW}Do you want to set up greetd autologin with Hyprland? (y/n)${NC}"
+read -r -p "Answer: " response
+case "$response" in
+    ""|[yY][eE][sS]|[yY])
+        echo -e "${YELLOW}Setting up greetd autologin...${NC}"
+        sudo systemctl enable greetd.service
+        sudo systemctl disable getty@tty1.service
 
-sudo tee /etc/greetd/config.toml > /dev/null <<EOF
+        sudo tee /etc/greetd/config.toml > /dev/null <<EOF
 [terminal]
 vt = 1
 
@@ -69,3 +74,9 @@ user = "greeter"
 command = "Hyprland"
 user = "arkaizn"
 EOF
+        echo -e "${GREEN}greetd autologin has been configured successfully.${NC}"
+        ;;
+    *)
+        echo -e "${YELLOW}Skipping greetd setup.${NC}"
+        ;;
+esac
