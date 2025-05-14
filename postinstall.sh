@@ -39,3 +39,15 @@ case "$response" in
 esac
 
 # Install NVIDIA drivers for Maxwell (NV110) series and newer
+# Install Zsh
+echo -e "${YELLOW}Do you want to install Nvidia Drivers for Maxwell (NV110) series and newer? (y/n)${NC}"
+read -r -p "Answer: " response
+case "$response" in
+    ""|[yY][eE][sS]|[yY])
+        echo -e "${YELLOW}Installing and configuring Nvidia Drivers...${NC}"
+        bash ./additions/nvidia-dkms.sh
+        ;;
+    *)
+        echo -e "${YELLOW}Skipping Nvidia Driver installation.${NC}"
+        ;;
+esac
