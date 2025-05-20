@@ -39,6 +39,7 @@ essential_packages=(
     pavucontrol
     blueman
     wayvnc
+    python-colorthief
 )
 
 essential_vm_packages=(
