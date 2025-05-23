@@ -24,7 +24,7 @@ main() {
     
     # Generate colors with pywal
     wal --backend colorthief -i "$selected_wallpaper"
-    
+    wal -i "$selected_wallpaper"
     # Reload swaync theme
     swaync-client --reload-css
     
