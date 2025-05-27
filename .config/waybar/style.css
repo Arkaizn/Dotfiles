@@ -39,6 +39,7 @@ window#waybar {
     color: @color7;
 }
 
+#custom-power:hover,
 #clock:hover,
 #custom-pacman:hover,
 #custom-notification:hover,
@@ -60,6 +61,12 @@ window#waybar {
 }
 
 #clock {
+    padding: 0px 5px;
+    color:@color7;
+    transition: all .3s ease;
+}
+
+#custom-power {
     padding: 0px 5px;
     color:@color7;
     transition: all .3s ease;
@@ -114,19 +121,19 @@ window#waybar {
 }
 
 #bluetooth {
-    padding: 0px 0px;
+    padding: 0px 5px;
     transition: all .3s ease;
     color:@color7;
 }
 
 #network {
-    padding: 0px 10px;
+    padding: 0px 5px;
     transition: all .3s ease;
     color:@color7;
 }
 
 #custom-sound {
-    padding: 0px 10px;
+    padding: 0px 5px;
     transition: all .3s ease;
     color:@color7;
 }

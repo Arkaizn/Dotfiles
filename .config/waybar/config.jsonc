@@ -22,7 +22,8 @@
             "bluetooth",
             "custom/sound",
             "network",
-            "battery"
+            "battery",
+            "custom/power"
         ],
 
         "hyprland/workspaces": {
@@ -62,13 +63,13 @@
             "format-disconnected": "",
             "tooltip-format-disconnected": "Error",
             "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-            "tooltip-format-ethernet": "{ifname}  ",
+            "tooltip-format-ethernet": "{ifname} ",
             "on-click": "iwgtk"
         },        
         "custom/sound": {
             "interval": 1,
             "exec": "pamixer --get-volume",
-            "format": "{}%",
+            "format": " {}%",
             "on-click": "sh -c 'pavucontrol'",
             "on-scroll-up": "pamixer -i 5",   // Lautstärke erhöhen
             "on-scroll-down": "pamixer -d 5", // Lautstärke verringern
@@ -89,14 +90,14 @@
         "battery": {
             "interval":1,
             "states": {
-                "good": 95,
+                "good": 90,
                 "warning": 30,
                 "critical": 20
             },
-            "format": "{capacity}% {icon}",
-            "format-charging": "{capacity}% 󰂄",
-            "format-plugged": "{capacity}% 󰂄 ",
-            "format-alt": "{time} {icon}",
+            "format": "{icon} {capacity}%",
+            "format-charging": "󰂄 {capacity}%",
+            "format-plugged": "󰂄  {capacity}%",
+            "format-alt": "{icon} {time}",
             "format-icons": [
                 "󰁻",
             "󰁼",
@@ -115,8 +116,12 @@
             "signal": 8,
             "tooltip": false
         },
-        "custom/expand": {
-            "format": "",
+        "custom/expand-left": {
+            "format": "  ",
+            "tooltip": false
+        },
+        "custom/expand-right": {
+            "format": "  ",
             "tooltip": false
         },
         "custom/endpoint":{
@@ -130,7 +135,25 @@
                 "transition-to-left": true,
                 "click-to-reveal": true
             },
-            "modules": ["custom/expand", "custom/colorpicker","custom/endpoint"]
+            "modules": ["custom/expand-left", "custom/colorpicker","custom/endpoint"]
+        },
+        "group/expand-left": {
+            "orientation": "horizontal",
+            "drawer": {
+                "transition-duration": 600,
+                "transition-to-left": true,
+                "click-to-reveal": true
+            },
+            "modules": ["custom/expand-left","custom/gpuusage","custom/cpuusage","memory","custom/endpoint"]
+        },
+        "group/expand-right": {
+            "orientation": "horizontal",
+            "drawer": {
+                "transition-duration": 600,
+                "transition-to-left": true,
+                "click-to-reveal": true
+            },
+            "modules": ["custom/endpoint","custom/gputemp","custom/cputemp","custom/expand-right"]
         },
         "custom/colorpicker": {
             "format": "{}",
@@ -172,5 +195,10 @@
             "interval": 2,
             "format": " {percentage}%",
             "tooltip-format": "{used:0.1f}G/{total:0.1f}G"
+        },
+        "custom/power": {
+            "format": "{}",
+            "tooltip": false,
+            "on-click": "wlogout"
         }
 } 
