@@ -14,8 +14,10 @@ essential_packages=(
     hyprlock
     hyprcursor
     hyprshot
+    hyprpicker
     xdg-desktop-portal-hyprland
     pacman-contrib
+    pamixer
     ntfs-3g
     p7zip
     wofi
@@ -40,6 +42,10 @@ essential_packages=(
     blueman
     wayvnc
     python-colorthief
+    gnome-calculator
+    qimgv
+    gdu
+    nwg-look
 )
 
 essential_vm_packages=(

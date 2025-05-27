@@ -3,7 +3,9 @@
 # packages list
 packages=(
     wine
+    winegui
     steam
+    liquidcctl
     thunderbird
     ani-cli
     ferdium
@@ -16,6 +18,18 @@ packages=(
     lutris
     lazydocker
     greetd
+    paleta
+    pitivi
+    openlinkhub
+    archiso
+    tailscale
+    nmap
+    openssh
+    wayvnc
+    obsidian
+    docker
+    docker-compose
+    
 )
 
 # Check if yay is installed
