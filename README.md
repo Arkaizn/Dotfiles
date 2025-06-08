@@ -45,6 +45,7 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#home-manager">Home Manager</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
@@ -164,6 +165,18 @@ Here are some planned features and improvements for the project:
     └── refresh.sh
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- HOME MANAGER -->
+## Home Manager
+
+The `nix/` directory contains a flake with a [Home Manager](https://nix-community.github.io/home-manager/) setup.
+If you have the Nix package manager installed with flakes enabled, apply the configuration using:
+
+```sh
+nix run github:nix-community/home-manager --extra-experimental-features 'nix-command flakes' -- -b bak switch --flake ./nix#user
+```
+
+This will install the packages listed in `nix/home.nix` and link all program configurations.
 
 <!-- LICENSE -->
 ## License
